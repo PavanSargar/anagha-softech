@@ -1,0 +1,53 @@
+.card img {
+  max-width: 540px;
+}
+.card {
+  max-width: 540px;
+}
+
+.card a {
+  color: #18a8ff;
+  border-bottom: 1px solid #18a8ff;
+  cursor: pointer;
+}
+.card span {
+  background-color: #b5e4ca;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+.banner {
+  background-color: #edf7f7;
+  padding: 64px 79px;
+  border-radius: 47px;
+}
+
+.banner img {
+  width: 100% !important;
+  height: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .banner img {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 1076px) {
+  .banner {
+    flex-direction: column;
+  }
+  .banner img {
+    width: 100% !important;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card  {
+    width: 100%;
+  }
+  .card img {
+    width: 100%;
+  }
+}

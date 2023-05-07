@@ -1,0 +1,67 @@
+.card {
+  color: #667790;
+  border: 1.5px solid #667790;
+  border-radius: 8px;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+
+.contact {
+  margin: 2rem 6rem !important;
+  background-color: #edf7f7;
+  border-radius: 48px;
+  padding: 2rem;
+}
+
+.card.active {
+  color: white;
+  background-color: #03156d;
+}
+
+.form {
+  border-left: 2px solid #eeeeee;
+  padding-left: 2rem !important;
+}
+
+.input {
+  background: #ffffff;
+  border: 2px solid rgba(42, 133, 255, 0.25);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 1rem;
+}
+
+.input input,
+.input textarea {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #03156d;
+  width: 100% !important;
+}
+.input input::placeholder,
+.input textarea::placeholder {
+  color: #b0bbcc;
+}
+
+.input textarea {
+  margin-top: -0.6rem;
+  margin-left: -0.7rem;
+}
+
+.direction-btn {
+  all: unset;
+
+  cursor: pointer;
+  color: #c701ff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    padding-left: 0 !important;
+  }
+}

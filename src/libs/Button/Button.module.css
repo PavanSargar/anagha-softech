@@ -1,0 +1,50 @@
+.container {
+  padding: 8px 16px;
+  background: #03156d;
+  border-radius: 90px;
+  color: #fff;
+  font-weight: bold;
+
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+
+  transition: all 0.2s;
+}
+
+.border,
+.hover-blue {
+  border: 2px solid #e6e8ec;
+  background-color: transparent;
+  color: #03156d;
+}
+
+.hover-blue {
+  width: fit-content;
+}
+
+.bg-blue {
+  background-color: #18a8ff;
+}
+
+.transparent {
+  background-color: transparent;
+  color: #777e90;
+}
+.transparent-dark {
+  background-color: transparent;
+  color: #03156d;
+}
+
+.hover-blue:hover {
+  background-color: #18a8ff;
+  color: #fcfcfd !important;
+}
+
+.fixed {
+  width: fit-content;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,26 @@
+.container {
+  background-color: #dbf1ff;
+  overflow-x: hidden;
+}
+
+.mobile {
+  display: none;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile {
+    display: flex;
+  }
+  .desktop {
+    display: none;
+  }
+
+  .container p {
+    width: 100% !important;
+  }
+}

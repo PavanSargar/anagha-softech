@@ -1,0 +1,67 @@
+.container {
+  overflow-x: hidden;
+}
+.right {
+  background-color: #18a8ff;
+  width: 600px;
+  height: 500px;
+  position: relative;
+}
+.left {
+  padding-right: 6rem !important;
+}
+
+.sub-title {
+  color: #c701ff !important;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+
+  text-transform: uppercase;
+}
+
+.left h2 {
+  line-height: 64px;
+  color: #03156d;
+  letter-spacing: -0.02em;
+}
+.left p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.h-rule {
+  border-bottom: 1px solid #d9dfea;
+}
+
+.overview {
+    width: 22%;
+}
+
+.overview h2,
+.overview h6 {
+  color: #03156d;
+}
+.overview h6 {
+  font-size: 18px;
+  line-height: 24px;
+}
+.overview p,
+.left p {
+  color: #667790;
+}
+.overview p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+
+@media screen and (max-width: 992px) {
+    .overview-components {
+        flex-direction: column;
+    }
+    .overview {
+        width: auto;
+    }
+}

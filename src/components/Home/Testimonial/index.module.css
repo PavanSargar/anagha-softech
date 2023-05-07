@@ -1,0 +1,13 @@
+.details p {
+  padding: 0 !important;
+  margin-bottom: 0rem;
+}
+.card {
+  padding-bottom: 1.5rem;
+  padding-right: 2rem;
+  border-bottom: 4px solid transparent;
+}
+
+.card.active {
+    border-bottom-color: #18a8ff;
+}
