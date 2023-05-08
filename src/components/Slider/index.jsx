@@ -28,7 +28,7 @@ const Carousel = ({ children, items=3, scroll=1 }) => {
         },
       },
       {
-        breakpoint: 576,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

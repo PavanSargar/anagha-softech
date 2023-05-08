@@ -6,10 +6,17 @@ import Button from "../../libs/Button/Button";
 import LOGO from "../../assets/icons/logo.png";
 import styles from "./Navbar.module.css";
 import { Image } from "react-bootstrap";
+import SubMenu from "../SubMenu";
+import { FiChevronDown } from "react-icons/fi";
 
 const Menu = () => {
+  const [isSubMenu, setSubMenu] = useState(false);
   const [isActive, setIsActive] = useState("");
   const currentUrl = window.location.pathname;
+
+  const handleCloseSubMenu = () => {
+    setSubMenu(false);
+  };
 
   useEffect(() => {
     setIsActive(currentUrl.slice(1));
@@ -19,7 +26,7 @@ const Menu = () => {
       <p>
         <Link
           onClick={() => setIsActive("")}
-          className={`${!isActive.length && styles.active}`}
+          className={`${!isActive.length && styles.active} fw-bold `}
           to="/"
         >
           Home
@@ -27,17 +34,26 @@ const Menu = () => {
       </p>
       <p>
         <Link
-          onClick={() => setIsActive("our-services")}
-          className={`${isActive === "our-services" && styles.active}`}
+          // onMouseOut={() => setSubMenu(false)}
+          onClick={() => {
+            setIsActive("our-services");
+            setSubMenu(!isSubMenu);
+          }}
+          className={`${
+            isActive === "our-services" && styles.active
+          } fw-bold d-flex align-items-center gap-1`}
           to="our-services"
         >
           Our Services
+          <FiChevronDown fontWeight={700} color="#c701ff" />
         </Link>
+
+        <SubMenu closeSubMenu={handleCloseSubMenu} active={isSubMenu} />
       </p>
       <p>
         <Link
           onClick={() => setIsActive("about")}
-          className={`${isActive === "about" && styles.active}`}
+          className={`${isActive === "about" && styles.active} fw-bold `}
           to="about"
         >
           About Us
@@ -46,7 +62,7 @@ const Menu = () => {
       <p>
         <Link
           onClick={() => setIsActive("portfolio")}
-          className={`${isActive === "portfolio" && styles.active}`}
+          className={`${isActive === "portfolio" && styles.active} fw-bold `}
           to="portfolio"
         >
           Portfolio
@@ -55,7 +71,7 @@ const Menu = () => {
       <p>
         <Link
           onClick={() => setIsActive("career")}
-          className={`${isActive === "career" && styles.active}`}
+          className={`${isActive === "career" && styles.active} fw-bold `}
           to="career"
         >
           Career
@@ -72,7 +88,9 @@ const Navbar = () => {
     <div className={`${styles["__navbar"]} section-padding`}>
       <div className={styles["__navbar-links"]}>
         <div className={styles["__navbar-links_logo"]}>
-          <Image src={LOGO} alt="Anaghasoftech" />
+          <Link to="/">
+            <Image src={LOGO} alt="Anaghasoftech" />
+          </Link>
         </div>
         <div className={`${styles["__navbar-links_container"]}`}>
           <Menu />

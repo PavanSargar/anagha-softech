@@ -36,7 +36,7 @@ const OurTeam = () => {
       <div className={`${styles.cards} mt-5`}>
         <Carousel items={4} scroll={1}>
           <Card />
-          <Card />
+          <Card /> 
           <Card />
           <Card />
           <Card />

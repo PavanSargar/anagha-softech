@@ -3,11 +3,40 @@
   margin-bottom: 0rem;
 }
 .card {
+  cursor: pointer;
   padding-bottom: 1.5rem;
   padding-right: 2rem;
   border-bottom: 4px solid transparent;
 }
 
 .card.active {
+  border-bottom-color: #18a8ff;
+}
+
+.review-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .review-cards {
+    display: none !important;
+  }
+  .reviews {
+    display: none;
+  }
+
+  .card {
+    justify-content: center;
     border-bottom-color: #18a8ff;
+
+  }
+
+  .slider {
+    display: block;
+  }
 }

@@ -17,3 +17,25 @@
 .description p {
   padding: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .services {
+    justify-content: center;
+  }
+  .service-heading {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+  }
+
+  .service-heading h3,
+  h5 {
+    text-align: center !important;
+    width: 100%;
+  }
+  .service-heading p {
+    width: 100% !important;
+
+    text-align: center;
+  }
+}

@@ -8,6 +8,8 @@ import LOGO from "../../../assets/dummyLogos/3.svg";
 import QUOTEICON from "../../../assets/icons/quotes.svg";
 import USER from "../../../assets/images/user.svg";
 
+import Carousel from "../../../components/Slider/index";
+
 import { Image } from "react-bootstrap";
 
 const data = [
@@ -81,9 +83,7 @@ const Testimonials = () => {
           <p className="p-2 text-grey">{selectedReview[0]?.company}</p>
         </span>
 
-        <div
-          className={`${styles.reviews} mt-4 flex-wrap d-flex align-items-center justify-content-center gap-5`}
-        >
+        <div className={`${styles["review-cards"]} mt-4  gap-5`}>
           {data.map((item, i) => (
             <ReviewCard
               onClick={() => setCurrentActive(item.name)}
@@ -94,6 +94,32 @@ const Testimonials = () => {
             />
           ))}
         </div>
+      </div>
+
+      <div className={`${styles.slider}`}>
+        <Carousel items={4} scroll={1}>
+          {data.map((item, i) => (
+            <div className="mt-5 h-50" key={i}>
+              <p className="p-xl text-center t-primary">
+                "{data[i]?.review}"
+              </p>
+              <span className="mt-3 d-flex align-items-center justify-content-center">
+                <Image className="mb-3" src={QUOTEICON} alt="" />
+                <p className="p2 mx-2 t-bold t-primary">
+                  {data[i]?.name}
+                </p>{" "}
+                <p>|</p>
+                <p className="p2 ms-2 text-grey">{data[i]?.company}</p>
+              </span>
+              <ReviewCard
+                onClick={() => setCurrentActive(item.name)}
+                name={item.name}
+                company={item.role}
+                isActive={currentActive === item.name}
+              />
+            </div>
+          ))}
+        </Carousel>
       </div>
     </div>
   );
@@ -113,8 +139,8 @@ const ReviewCard = ({ isActive, company, name, onClick }) => {
       <div
         className={`${styles["details"]} d-flex align-items-start flex-column`}
       >
-        <p className="p-2 t-bold t-primary">{name}</p>
-        <p className="p-3 text-grey">{company}</p>
+        <p className="p2 t-bold t-primary">{name}</p>
+        <p className="p3 text-grey">{company}</p>
       </div>
     </div>
   );

@@ -5,8 +5,6 @@ import Wrapper from "../../../libs/Wrapper";
 import { Image } from "react-bootstrap";
 import SERVICEIMG from "../../../assets/images/service-banner.png";
 
-import Newsletter from "../../../components/Newsletter/index";
-
 import styles from "./index.module.css";
 
 const HeroPortfolio = () => {
@@ -40,7 +38,7 @@ const HeroPortfolio = () => {
         <h3 className="H3 t-primary w-100 ">Our Portfolio</h3>
         <div className={`${styles.description}`}>
           {/* <h5 className="H5 t-primary">— We worked with</h5> */}
-          <p className="  para-text w-100">
+          <p className="p1 text-grey w-100">
             Our extensive portfolio highlights our innovative solutions for
             clients across various sectors, including healthcare, education,
             finance, and more. Witness the transformative power of our

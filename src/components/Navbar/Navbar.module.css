@@ -21,6 +21,7 @@
   padding-right: 3rem;
   transition: all 0.5s;
   border-right: 1px solid #e6e8ec;
+  cursor: pointer;
 }
 
 .__navbar-links_logo img {

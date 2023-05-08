@@ -3,3 +3,10 @@
   width: 50%;
   margin-top: -.6rem;
 }
+
+
+@media screen and (max-width: 576px) {
+  .heading h3 {
+    width: fit-content;
+  }
+}

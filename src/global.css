@@ -88,7 +88,7 @@ p {
   color: #03156d;
 }
 .t-dark {
-  color: #23262F;
+  color: #23262f;
 }
 
 ul,
@@ -97,7 +97,6 @@ a {
   all: unset;
   text-decoration: none;
 }
-
 
 .section-padding {
   padding: 2rem 8rem;
@@ -148,6 +147,38 @@ a {
   }
   .slider__container,
   .slick-track {
-    gap: 2rem;
+    gap: 0rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .section-padding {
+    padding: 2rem;
+  }
+  .p2 {
+    font-size: 12px;
+  }
+  .p3 {
+    font-size: 10px;
+  }
+  .p-xl {
+    font-size: 20px;
+  }
+  .p-lg {
+    font-size: 18px;
+  }
+
+  .H2 {
+    font-size: 48px;
+    /* line-height: 50px !important; */
+  }
+  .H3 {
+    font-size: 40px;
+  }
+  .H4 {
+    font-size: 24px;
+  }
+  .H6 {
+    font-size: 20px;
   }
 }
