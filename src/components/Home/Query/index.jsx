@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import { Col, Row } from "react-bootstrap";
@@ -6,9 +7,9 @@ import styles from "./index.module.css";
 import DropAQueryForm from "../../DropAQueryForm";
 import Wrapper from "../../../libs/Wrapper";
 
-const Query = () => {
+const Query = ({animation}) => {
   return (
-    <div className={styles.container}>
+    <div data-aos={animation} className={styles.container}>
       <Wrapper>
         <Row className="py-5 align-items-center">
           <Col sm={12} md={6}>

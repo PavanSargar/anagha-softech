@@ -8,8 +8,20 @@ import PHONEICON from "../../assets/icons/phone.svg";
 import HOMEICON from "../../assets/icons/home.svg";
 
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Footer = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  }
+
   return (
     <div className={`${styles.container} py-2`}>
       <Wrapper>
@@ -35,32 +47,25 @@ const Footer = () => {
           <Col md={3} sm={6} xs={12}>
             <h6 className="H8 mb-5 fw-bold text-white">Services</h6>
             <ul className={`${styles.services}`}>
-              <p>App Development</p>
-              <br />
-              <p>Cyber Security</p>
-              <br />
-              <p>Product Development</p>
-              <br />
-              <p>Digital Marketing</p>
-              <br />
-              <p>GIS Services</p>
-              <br />
-              <p>Stack Development</p>
-              <br />
-              <p>UI/UX Desingin</p>
+              <Link to="/service/mobile-app-development">App Development</Link>
+              <Link tp="/service/cyber-security-">Cyber Security</Link>
+              <Link to="/our-services">Product Development</Link>
+              <Link to="our-services">Digital Marketing</Link>
+              <Link to="our-services">GIS Services</Link>
+              <Link to="/service/web-development">Stack Development</Link>
+              <Link to="our-services">UI/UX Desingin</Link>
             </ul>
           </Col>
           <Col md={3} sm={6} xs={12}>
             <h6 className="H8 mb-5 fw-bold text-white">Company</h6>
             <ul className={`${styles.services}`}>
-              <p>About us</p>
-              <br />
-              <p>Careers</p>
+              <Link to="about">About us</Link>
+              <Link to="career">Careers</Link>
             </ul>
           </Col>
           <Col md={3} sm={6} xs={12}>
             <h6 className="H8 mb-5 fw-bold text-white">Let’s get a call</h6>
-            <div className={`${styles.form}`}>
+            <form onSubmit={handleSubmit(onSubmit)} className={`${styles.form}`}>
               <div className={`${styles["form-group"]}`}>
                 <label htmlFor="email">EMAIL</label>
                 <input
@@ -68,15 +73,18 @@ const Footer = () => {
                   type="email"
                   name="email"
                   id="email"
+                  {...register("email", { required: true })}
                 />
               </div>
               <div className={`${styles["form-group"]}`}>
                 <label htmlFor="PHONE">PHONE</label>
                 <input
-                  placeholder="Enter your email"
+                  placeholder="Enter your phone"
                   type="text"
                   name="PHONE"
                   id="PHONE"
+                  {...register("phone", { required: true })}
+
                 />
               </div>
               <div className={`${styles["form-group"]}`}>
@@ -87,19 +95,23 @@ const Footer = () => {
                     type="date"
                     name="start"
                     id="start"
+                    {...register("timeSlot1", { required: true })}
+
                   />
                   <input
                     // placeholder="Enter your email"
                     type="date"
                     name="end"
                     id="end"
+                    {...register("timeSlot2", { required: true })}
+
                   />
                 </div>
               </div>
-              <div className="d-flex align-items-center justify-content-end">
+              <div className="d-flex align-items-center justify-content-start">
                 <button>Get a call back</button>
               </div>
-            </div>
+            </form>
           </Col>
         </Row>
       </Wrapper>

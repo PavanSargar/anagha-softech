@@ -8,9 +8,9 @@ import Button from "../../../libs/Button/Button";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
 
-const OurServices = () => {
+const OurServices = ({ animate }) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animate}>
       <div className={`${styles.services}`}>
         <div
           className={`${styles["service-heading"]} mb-5 d-flex align-items-start justify-content-between`}

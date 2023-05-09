@@ -1,15 +1,16 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import HeroPortfolio from "../../components/Portfolio/HeroPortfolio";
 import OurPortfolio from "../../components/Portfolio/OurPortfolio";
 import Newsletter from "../../components/Newsletter";
 
-const Portfolio = () => {
+const Portfolio = ({ animation }) => {
   return (
     <>
-      <HeroPortfolio />
-      <OurPortfolio />
+      <HeroPortfolio animation={animation} />
+      <OurPortfolio animation={animation} />
 
-      <Newsletter />
+      <Newsletter animation={animation} />
     </>
   );
 };

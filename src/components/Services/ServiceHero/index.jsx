@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import Wrapper from "../../../libs/Wrapper/index";
@@ -6,9 +7,9 @@ import SERVICEIMG from "../../../assets/images/service-banner.png";
 
 import styles from "./index.module.css";
 
-const ServiceHero = () => {
+const ServiceHero = ({ animate }) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animate}>
       <div
         className={`${styles.container} mt-5 d-flex align-items-center gap-5 justify-content-between`}
       >

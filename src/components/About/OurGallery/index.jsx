@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import styles from "./index.module.css";
@@ -7,9 +8,9 @@ import Button from "../../../libs/Button/Button";
 import IMAGEFRAME from "../../../assets/images/image-frame.png";
 import { Image } from "react-bootstrap";
 
-const OurGallery = () => {
+const OurGallery = ({ animation }) => {
   return (
-    <div className={`${styles.container}`}>
+    <div data-aos={animation} className={`${styles.container}`}>
       <Wrapper>
         <div
           className={`${styles.heading} d-flex align-items-center flex-column`}

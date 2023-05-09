@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
@@ -8,9 +9,9 @@ import MOTOIMG from "../../../assets/images/moto.svg";
 import styles from "./index.module.css";
 import { Image } from "react-bootstrap";
 
-const MissionVision = () => {
+const MissionVision = ({ animation }) => {
   return (
-    <div className={`${styles.container}`}>
+    <div data-aos={animation} className={`${styles.container}`}>
       <div
         className={`${styles.card} ${styles.pink} d-flex align-items-center `}
       >

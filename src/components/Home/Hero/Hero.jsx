@@ -9,9 +9,9 @@ import THUNDERICON from "../../../assets/icons/thunder.svg";
 import styles from "./Hero.module.css";
 import { Link } from "react-router-dom";
 
-const Hero = () => {
+const Hero = ({ animation }) => {
   return (
-    <div className={`${styles.container}   `}>
+    <div data-aos={animation} className={`${styles.container}   `}>
       <Row className="d-flex align-items-center">
         <Col md={6} sm={12} className={`${styles.left} section-padding-left`}>
           <p className={styles["sub-title"]}>

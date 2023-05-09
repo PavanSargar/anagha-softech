@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import styles from "./index.module.css";
@@ -9,9 +10,9 @@ import LOGO4 from "../../../assets/dummyLogos/4.svg";
 import LOGO5 from "../../../assets/dummyLogos/5.svg";
 import { Image } from "react-bootstrap";
 
-const OurClients = () => {
+const OurClients = ({ animation }) => {
   return (
-    <div className={`${styles.container} section-padding mt-5`}>
+    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
       <div
         className={`${styles.heading} d-flex align-items-start justify-content-between`}
       >

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { Image } from "react-bootstrap";
@@ -7,9 +8,9 @@ import IMAGE from "../../../assets/images/service-area.svg";
 
 import styles from "./index.module.css";
 
-const ServiceArea = () => {
+const ServiceArea = ({ animation }) => {
   return (
-    <div className={`${styles.container} section-padding mt-5`}>
+    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
       <div
         className={`${styles.heading} d-flex flex-column align-items-center justify-content-center`}
       >

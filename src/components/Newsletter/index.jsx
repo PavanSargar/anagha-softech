@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import Wrapper from "../../libs/Wrapper/index";
@@ -5,9 +6,9 @@ import Button from "../../libs/Button/Button";
 
 import styles from "./index.module.css";
 
-const Newsletter = () => {
+const Newsletter = ({ animation }) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animation}>
       <div
         className={`${styles.container} d-flex align-items-center justify-content-between flex-wrap`}
       >

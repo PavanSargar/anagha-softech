@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import Wrapper from "../../../libs/Wrapper/index";
@@ -12,9 +13,9 @@ import { Image } from "react-bootstrap";
 import Carousel from "../../Slider";
 import { HiOutlineArrowRight } from "react-icons/hi";
 
-const OurTeam = () => {
+const OurTeam = ({ animation }) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animation}>
       <div className={`${styles.heading} mb-4 `}>
         <p className="p3 fw-bold text-center text-pink">OUR TEAM</p>
         <h3 className="H3 text-center t-primary ">Anagha Softech Team</h3>
@@ -36,7 +37,7 @@ const OurTeam = () => {
       <div className={`${styles.cards} mt-5`}>
         <Carousel items={4} scroll={1}>
           <Card />
-          <Card /> 
+          <Card />
           <Card />
           <Card />
           <Card />

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
@@ -13,11 +14,11 @@ import Button from "../../libs/Button/Button";
 import styles from "./index.module.css";
 import { Col, Image, Row } from "react-bootstrap";
 
-const Career = () => {
+const Career = ({ animation }) => {
   return (
     <div className={`${styles.container} pt-5 mt-3`}>
       <Wrapper>
-        <Row className="align-items-center justify-content-between flex-wrap ">
+        <Row data-aos={animation} className="align-items-center justify-content-between flex-wrap ">
           <Col sm={12} md={6}>
             <div className={`${styles.heading} mb-4 `}>
               <p className="p1 fw-bold text-pink">CAREER OPPORTUNITY</p>
@@ -35,7 +36,8 @@ const Career = () => {
             <Image fluid src={CAREERIMG} alt="" />
           </Col>
         </Row>
-        <div className={`${styles.subheading} mb-4 mt-5`}>
+
+        <div data-aos={animation} className={`${styles.subheading} mb-4 mt-5`}>
           <p className="p1 fw-bold text-center text-pink">BENEFITS</p>
           <h3 className="H3 t-dark mb-4 text-center ">
             Let's see our benefits
@@ -47,6 +49,7 @@ const Career = () => {
         </div>
 
         <div
+        data-aos={animation}
           className={`${styles["benefit-cards"]} mt-5 flex-wrap d-flex justify-content-between align-items-center gap-5`}
         >
           <BenefitCard />
@@ -58,7 +61,7 @@ const Career = () => {
         </div>
       </Wrapper>
 
-      <div className={`${styles["job-opening"]}`}>
+      <div data-aos={animation} className={`${styles["job-opening"]}`}>
         <div className={`${styles["job-heading"]}`}>
           <h3 className="H3 t-dark mb-4 text-center ">Job Opening</h3>
           <p className="text-grey text-center p-xl">

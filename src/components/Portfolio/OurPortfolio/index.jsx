@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Wrapper from "../../../libs/Wrapper";
 
@@ -10,9 +11,9 @@ import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "../../../libs/Button/Button";
 
-const OurPortfolio = () => {
+const OurPortfolio = ({ animation }) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animation}>
       <div className=" flex-wrap gap-5 d-flex align-items-center justify-content-between">
         <Card />
         <Card />
@@ -21,6 +22,7 @@ const OurPortfolio = () => {
       </div>
 
       <div
+        data-aos={animation}
         className={`${styles.banner} mt-5 d-flex gap-5 align-items-center justify-content-between`}
       >
         <Image fluid src={BANNERIMG} alt="" />
@@ -30,7 +32,9 @@ const OurPortfolio = () => {
             Anagha Softech aims to turn every business into a success story with
             a cost-driven approach. 🏀
           </p>
-          <Button fixed className="bg-blue">Full Case Study</Button>
+          <Button fixed className="bg-blue">
+            Full Case Study
+          </Button>
         </div>
       </div>
 

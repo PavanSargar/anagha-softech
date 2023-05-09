@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Hero from "../../components/Home/Hero/Hero";
 import Banner from "../../components/Home/Banner/Banner";
@@ -11,20 +12,20 @@ import OurMission from "../../components/Home/OurMission";
 import Query from "../../components/Home/Query";
 import Newsletter from "../../components/Newsletter";
 
-const Home = () => {
+const Home = ({ animation }) => {
   return (
     <div style={{ marginTop: "56px" }}>
-      <Hero />
-      <Banner />
-      <OurServices />
-      <WhyChooseUs />
-      <OurClients />
-      <Testimonials />
-      <ServiceArea />
-      <OurCompany />
-      <OurMission />
-      <Query />
-      <Newsletter />
+      <Hero animation={animation} />
+      <Banner animation={animation} />
+      <OurServices animation={animation} />
+      <WhyChooseUs animation={animation} />
+      <OurClients animation={animation} />
+      <Testimonials animation={animation} />
+      <ServiceArea animation={animation} />
+      <OurCompany animation={animation} />
+      <OurMission animation={animation} />
+      <Query animation={animation} />
+      <Newsletter animation={animation} />
     </div>
   );
 };

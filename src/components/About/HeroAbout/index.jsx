@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
@@ -9,9 +10,9 @@ import { Col, Image, Row } from "react-bootstrap";
 import BANNER from "../../../assets/images/about-banner.png";
 import DOWNLOADICON from "../../../assets/icons/download.svg";
 
-const HeroAbout = () => {
+const HeroAbout = ({ animation }) => {
   return (
-    <>
+    <div data-aos={animation}>
       <Wrapper>
         <div className={`${styles.container} mt-4`}>
           <div className={`${styles.heading}`}>
@@ -55,7 +56,7 @@ const HeroAbout = () => {
           </Col>
         </Row>
       </Wrapper>
-    </>
+    </div>
   );
 };
 

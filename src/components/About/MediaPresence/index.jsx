@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import {
@@ -11,9 +12,9 @@ import MEDIAICON from "../../../assets/icons/media.svg";
 
 import styles from "./index.module.css";
 
-const MediaPresence = () => {
+const MediaPresence = ({animation}) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animation}>
       <div
         className={`${styles.heading} d-flex align-items-center justify-content-between`}
       >

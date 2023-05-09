@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import { TbSend } from "react-icons/tb";
 
 import styles from "./index.module.css";
 
-const ContactBanner = () => {
+const ContactBanner = ({ animate }) => {
   return (
     <div
+      data-aos={animate}
       className={`${styles.container} d-flex align-items-center gap-4 justify-content-between`}
     >
       <h4 className="H4 text-white w-50">

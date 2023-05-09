@@ -9,9 +9,9 @@ import Carousel from "../../Slider";
 
 import styles from "./OurServices.module.css";
 
-const OurServices = () => {
+const OurServices = ({animation}) => {
   return (
-    <div className={`${styles.container} section-padding mt-5`}>
+    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
       <div
         className={`${styles.heading} d-flex align-items-center flex-column`}
       >

@@ -43,7 +43,7 @@ const data = [
   },
 ];
 
-const Testimonials = () => {
+const Testimonials = ({ animation }) => {
   const [currentActive, setCurrentActive] = useState("John Smith");
 
   const selectedReview = data.filter((item) => {
@@ -51,7 +51,7 @@ const Testimonials = () => {
   });
 
   return (
-    <div className={`${styles.container} section-padding mt-5`}>
+    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
       <div
         className={`${styles.heading} d-flex flex-column align-items-center justify-content-center`}
       >

@@ -42,7 +42,7 @@ const Menu = () => {
           className={`${
             isActive === "our-services" && styles.active
           } fw-bold d-flex align-items-center gap-1`}
-          to="our-services"
+          // to="our-services"
         >
           Our Services
           <FiChevronDown fontWeight={700} color="#c701ff" />

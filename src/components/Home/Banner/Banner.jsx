@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import BANNERIMG from "../../../assets/images/hero-banner.svg";
 import BANNERIMG2 from "../../../assets/images/slider-2.png";
@@ -8,9 +9,9 @@ import { Carousel } from "react-bootstrap";
 
 import styles from "./Banner.module.css";
 
-const Banner = () => {
+const Banner = ({ animation }) => {
   return (
-    <div className={styles.container}>
+    <div data-aos={animation} className={styles.container}>
       <Carousel controls={false} indicators={false}>
         <Carousel.Item interval={2000}>
           <div className={styles.title}>

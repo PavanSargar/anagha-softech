@@ -12,6 +12,7 @@ const OurMission = () => {
   return (
     <Wrapper>
       <div
+
         className={`${styles.head} flex-column d-flex align-items-center justify-content-center`}
       >
         <p className="p3 fw-bold text-pink text-center">OUR</p>

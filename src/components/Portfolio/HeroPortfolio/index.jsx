@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
@@ -7,9 +8,9 @@ import SERVICEIMG from "../../../assets/images/service-banner.png";
 
 import styles from "./index.module.css";
 
-const HeroPortfolio = () => {
+const HeroPortfolio = ({ animation }) => {
   return (
-    <Wrapper>
+    <Wrapper animation={animation}>
       <div
         className={`${styles.container} mt-5 d-flex align-items-center  justify-content-between`}
       >
@@ -47,7 +48,6 @@ const HeroPortfolio = () => {
           </p>
         </div>
       </div>
-
     </Wrapper>
   );
 };

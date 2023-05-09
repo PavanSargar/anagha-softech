@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import { Row, Col, Image } from "react-bootstrap";
@@ -5,9 +6,9 @@ import IMAGE from "../../../assets/images/company.png";
 
 import styles from "./index.module.css";
 
-const OurCompany = () => {
+const OurCompany = ({ animation }) => {
   return (
-    <div className={`${styles.container} mt-5`}>
+    <div data-aos={animation} className={`${styles.container} mt-5`}>
       <Row className="section-padding gap-3 py-5">
         <Col className={styles["desktop"]} md={4} sm={12}>
           <Image className="fluid" src={IMAGE} alt="" />
