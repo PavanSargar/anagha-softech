@@ -196,11 +196,15 @@ const ServiceDetail = () => {
   console.log(id.split("-").join(""));
 
   useEffect(() => {
+
+    window.scrollTo(0, 0)
+
     if (mobileDevelopment) setServiceData(mobileAppDevelopment);
     if (webDevelopment) setServiceData(webDevelopmentData);
     if (cyberSecurity) setServiceData(cyberSecurityData);
     if (staffingSolutions) setServiceData(staffingSolutionsData);
-  }, []);
+  }, [id]);
+
 
   return (
     <>

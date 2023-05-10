@@ -139,6 +139,11 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+  .slick-initialized .slick-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .section-padding-left {
     padding: 2rem 0 2rem 4rem;
   }
@@ -148,6 +153,13 @@ a {
   .slider__container,
   .slick-track {
     gap: 0rem;
+  }
+  .mobile__slick-slide .slick-slide {
+    width: 423px !important;
+  }
+
+  .card__gap-slick .slick-track {
+    gap: 3.5rem;
   }
 }
 
@@ -180,5 +192,13 @@ a {
   }
   .H6 {
     font-size: 20px;
+  }
+}
+
+
+@media screen and (max-width: 430px) {
+  .slider__container,
+  .slick-track  {
+    gap: 3rem !important;
   }
 }

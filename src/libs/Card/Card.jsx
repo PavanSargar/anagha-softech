@@ -14,10 +14,11 @@ const Card = ({
   type,
   fixed,
   center,
+  fixedHeight,
 }) => {
   return (
     <div className={`${styles.container} ${center && "pt-5"} ${fixed && styles.fixed} ${center && styles["align-center"]}`}>
-      <span className={`text-center ${center && styles.center}`}>
+      <span className={`text-center ${center && styles.center} ${fixedHeight && styles["height-fixed"]}`}>
         <Image className="mb-4" src={icon} alt="" />
       </span>
       <h6 className={`H6 mb-3 ${center && "text-center"}`}>{title}</h6>

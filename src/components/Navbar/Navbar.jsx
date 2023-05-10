@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import Button from "../../libs/Button/Button";
 
-import LOGO from "../../assets/icons/logo.png";
+import LOGO from "../../assets/icons/logo.svg";
 import styles from "./Navbar.module.css";
 import { Image } from "react-bootstrap";
 import SubMenu from "../SubMenu";

@@ -13,6 +13,22 @@
   width: 30%;
 }
 
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .clients.desktop {
+    display: none !important;
+  }
+  .mobile {
+    display: block;
+  }
+  /* .mobile img {
+    width:  !important;
+  } */
+}
+
 @media screen and (max-width: 576px) {
   .heading {
     flex-direction: column;
@@ -28,8 +44,9 @@
     text-align: center;
   }
 
-  .clients {
+  /* .clients {
     gap: 4rem;
     flex-wrap: wrap;
-  }
+  } */
+
 }

@@ -20,8 +20,36 @@
     margin-top: 4rem;
 }
 
+.cards.mobile {
+  display: none;
+}
+
+
 @media screen and (max-width: 768px) {
   .cards {
     flex-wrap: wrap;
+  }
+  .cards.mobile {
+    display: block;
+  }
+  .img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+
+  .description p {
+    width: 90%;
+  }
+
+  .cards.desktop {
+    display: none !important; 
   }
 }

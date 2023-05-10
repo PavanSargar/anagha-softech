@@ -5,6 +5,10 @@ import { Col, Image, Row } from "react-bootstrap";
 import Button from "../../../libs/Button/Button";
 
 import THUNDERICON from "../../../assets/icons/thunder.svg";
+import USERICON from "../../../assets/icons/user.svg";
+import AVATARICON from "../../../assets/icons/small-avatar.svg";
+import CODEICON from "../../../assets/icons/code.svg";
+import CASTICON from "../../../assets/icons/cast.svg";
 
 import styles from "./Hero.module.css";
 import { Link } from "react-router-dom";
@@ -27,7 +31,9 @@ const Hero = ({ animation }) => {
             help your business thrive.
           </p>
           <div className="d-flex align-items-center gap-2 mt-4">
-            <Button className="bg-blue">Know more</Button>
+            <Link to="/our-services">
+              <Button className="bg-blue">Know more</Button>
+            </Link>
             <Link to="/portfolio">
               <Button className="border">Portfolio</Button>
             </Link>
@@ -40,21 +46,25 @@ const Hero = ({ animation }) => {
           className={`${styles["overview-components"]} d-flex align-items-center gap-5 mt-5 flex-wrap`}
         >
           <Overview
+            icon={USERICON}
             title="Happy Users"
             description="Helping businesses satisfy their digital requirements and serve their customers"
             num="1m"
           />
           <Overview
+            icon={CASTICON}
             title="Digital Transmission"
             description="Leveraging the latest technology and infrastructure to provide a seamless digital experience"
             num="1.2m"
           />
           <Overview
+            icon={AVATARICON}
             title="Clients"
             description="Diverse clients from various industries, including healthcare, education, and finance"
             num="50+"
           />
           <Overview
+            icon={CODEICON}
             title="Application Developed"
             description="Numerous cutting-edge web and mobile applications delivered"
             num="900k+"
@@ -67,11 +77,11 @@ const Hero = ({ animation }) => {
 
 export default Hero;
 
-const Overview = ({ num, title, description }) => {
+const Overview = ({ num, title, description, icon }) => {
   return (
     <div className={styles.overview}>
       <span className="">
-        <Image src={THUNDERICON} alt="" />
+        <Image src={icon} alt="" />
       </span>
       <h2 className="H2 fw-bold mt-5 mb-3">{num}</h2>
       <div className={styles["h-rule"]} />

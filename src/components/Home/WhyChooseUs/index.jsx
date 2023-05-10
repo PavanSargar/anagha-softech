@@ -9,6 +9,7 @@ import STOPWATCHICON from "../../../assets/icons/stopwatch.svg";
 import WHISTLEICON from "../../../assets/icons/whistle.svg";
 import CONNECTLINEICON from "../../../assets/icons/connect_line.svg";
 import { Image } from "react-bootstrap";
+import Carousel from "../../Slider";
 
 const data = [
   {
@@ -39,7 +40,10 @@ const data = [
 
 const WhyChooseUs = ({ animation }) => {
   return (
-    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
+    <div
+      data-aos={animation}
+      className={`${styles.container} section-padding mt-5`}
+    >
       <div
         className={`${styles.heading} d-flex align-items-center flex-column`}
       >
@@ -48,7 +52,7 @@ const WhyChooseUs = ({ animation }) => {
       </div>
 
       <div
-        className={`${styles.cards} d-flex justify-content-center align-items-center gap-5`}
+        className={`${styles.cards} ${styles.desktop} d-flex justify-content-center align-items-center gap-5`}
       >
         {data.map((item, id) => (
           <>
@@ -58,11 +62,23 @@ const WhyChooseUs = ({ animation }) => {
               icon={item.icon}
               title={item.title}
             />
-            <span className={styles["connect-line"]}>
-                <Image src={CONNECTLINEICON} alt="" />
-            </span>
           </>
         ))}
+      </div>
+
+      <div
+        className={`${styles.cards} ${styles.mobile} `}
+      >
+        <Carousel items={1} scroll={1}>
+          {data.map((item, id) => (
+              <Card
+                description={item.description}
+                key={id}
+                icon={item.icon}
+                title={item.title}
+              />
+          ))}
+        </Carousel>
       </div>
     </div>
   );

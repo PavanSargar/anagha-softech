@@ -9,9 +9,12 @@ import Carousel from "../../Slider";
 
 import styles from "./OurServices.module.css";
 
-const OurServices = ({animation}) => {
+const OurServices = ({ animation }) => {
   return (
-    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
+    <div
+      data-aos={animation}
+      className={`${styles.container} section-padding mt-5`}
+    >
       <div
         className={`${styles.heading} d-flex align-items-center flex-column`}
       >
@@ -26,19 +29,19 @@ const OurServices = ({animation}) => {
           <Card
             title="Application Development"
             description="From idea to launch, we work with you to create intuitive, feature-rich web or mobile applications that deliver exceptional user experience."
-            link="/"
+            link="/service/mobile-app-development"
             icon={AVATAR}
           />
           <Card
             title="Cybersecurity"
             description="Protect your sensitive data and keep your systems secure with our comprehensive cybersecurity services."
-            link="/"
+            link="/service/cyber-security-"
             icon={THUNDER}
           />
           <Card
-            title="Application Development"
-            description="Our team has experience creating products for various industries, and we use the latest technologies to ensure exceptional performance and user experience."
-            link="/"
+            title="Product Development"
+            description="Our team has experience creating products for various industries, & we use the latest technologies to ensure exceptional performance and user experience."
+            link="/our-services"
             icon={BADGE}
           />
           <Card
@@ -54,9 +57,9 @@ const OurServices = ({animation}) => {
             icon={THUNDER}
           />
           <Card
-            title="Application Development"
-            description="Our team has experience creating products for various industries, and we use the latest technologies to ensure exceptional performance and user experience."
-            link="/"
+            title="Product Development"
+            description="Our team has experience creating products for various industries, & we use the latest technologies to ensure exceptional performance and user experience."
+            link="/our-services"
             icon={BADGE}
           />
         </Carousel>

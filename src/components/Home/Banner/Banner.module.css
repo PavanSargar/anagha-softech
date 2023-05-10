@@ -39,3 +39,10 @@
         width: 50vw;
     }
 }
+
+@media screen and (max-width: 480px) {
+  .title h2 {
+      font-size: calc(32px - 3vw);
+      width: 50vw;
+  }
+}

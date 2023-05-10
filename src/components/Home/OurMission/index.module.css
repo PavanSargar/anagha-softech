@@ -1,0 +1,12 @@
+.cards.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .cards.mobile {
+    display: block;
+  }
+  .cards.desktop {
+    display: none !important;
+  }
+}

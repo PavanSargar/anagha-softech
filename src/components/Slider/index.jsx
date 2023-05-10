@@ -42,6 +42,13 @@ const Carousel = ({ children, items=3, scroll=1 }) => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
   return <Slider {...settings}>{children}</Slider>;

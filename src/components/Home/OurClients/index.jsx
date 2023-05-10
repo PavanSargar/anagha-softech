@@ -9,10 +9,14 @@ import LOGO3 from "../../../assets/dummyLogos/3.svg";
 import LOGO4 from "../../../assets/dummyLogos/4.svg";
 import LOGO5 from "../../../assets/dummyLogos/5.svg";
 import { Image } from "react-bootstrap";
+import Carousel from "../../Slider";
 
 const OurClients = ({ animation }) => {
   return (
-    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
+    <div
+      data-aos={animation}
+      className={`${styles.container} section-padding mt-5`}
+    >
       <div
         className={`${styles.heading} d-flex align-items-start justify-content-between`}
       >
@@ -26,12 +30,24 @@ const OurClients = ({ animation }) => {
         </div>
       </div>
 
-      <div className={`${styles.clients} mt-5 d-flex align-items-center justify-content-center `}>
+      <div
+        className={`${styles.clients} ${styles.desktop} mt-5 d-flex align-items-center justify-content-center `}
+      >
         <Image src={LOGO1} alt="" />
         <Image src={LOGO2} alt="" />
         <Image src={LOGO3} alt="" />
         <Image src={LOGO4} alt="" />
         <Image src={LOGO5} alt="" />
+      </div>
+
+      <div className={`${styles.mobile} mobile__slick-slide `}>
+        <Carousel items={1} scroll={1}>
+          <Image src={LOGO1} alt="" />
+          <Image src={LOGO2} alt="" />
+          <Image src={LOGO3} alt="" />
+          <Image src={LOGO4} alt="" />
+          <Image src={LOGO5} alt="" />
+        </Carousel>
       </div>
     </div>
   );
