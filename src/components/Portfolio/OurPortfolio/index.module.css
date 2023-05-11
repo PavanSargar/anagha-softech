@@ -44,10 +44,22 @@
 }
 
 @media screen and (max-width: 768px) {
-  .card  {
+  .card {
     width: 100%;
   }
   .card img {
     width: 100%;
+  }
+  .banner {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .banner {
+    padding: 2rem 1.5rem;
+  }
+  .banner-description p {
+    margin-top: .8rem !important;
   }
 }

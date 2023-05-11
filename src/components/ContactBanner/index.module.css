@@ -40,4 +40,14 @@
 
     font-size: 0.8rem;
   }
+  .container {
+    margin: 2rem;
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+  }
+  .container h4 {
+    width: 100% !important;
+    text-align: center;
+  }
+
 }

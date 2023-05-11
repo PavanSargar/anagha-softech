@@ -100,7 +100,7 @@
   margin-top: 1rem;
   min-width: 280px;
   border-radius: 5px;
-  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .__navbar-menu_container p {
