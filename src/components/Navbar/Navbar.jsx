@@ -37,21 +37,37 @@ const Menu = ({ mobile, setToggleMenu }) => {
         </Link>
       </p>
       <p>
-        <Link
-          // onMouseOut={() => setSubMenu(false)}
-          onClick={() => {
-            setIsActive("our-services");
-            !mobile && setSubMenu(!isSubMenu);
-            setToggleMenu(false);
-          }}
-          className={`${isActive === "our-services" && styles.active} ${
-            styles.services
-          } fw-bold d-flex align-items-center gap-1`}
-          to={`${mobile && "our-services"}`}
-        >
-          Our Services
-          {!mobile && <FiChevronDown fontWeight={700} color="#c701ff" />}
-        </Link>
+        {!mobile ? (
+          <Link
+            // onMouseOut={() => setSubMenu(false)}
+            onClick={() => {
+              setIsActive("our-services");
+              setSubMenu(!isSubMenu);
+            }}
+            className={`${isActive === "our-services" && styles.active} ${
+              styles.services
+            } fw-bold d-flex align-items-center gap-1`}
+          >
+            Our Services
+            {!mobile && <FiChevronDown fontWeight={700} color="#c701ff" />}
+          </Link>
+        ) : (
+          <Link
+            // onMouseOut={() => setSubMenu(false)}
+            onClick={() => {
+              setIsActive("our-services");
+              !mobile && setSubMenu(!isSubMenu);
+              setToggleMenu(false);
+            }}
+            className={`${isActive === "our-services" && styles.active} ${
+              styles.services
+            } fw-bold d-flex align-items-center gap-1`}
+            to={`${mobile && "our-services"}`}
+          >
+            Our Services
+            {!mobile && <FiChevronDown fontWeight={700} color="#c701ff" />}
+          </Link>
+        )}
         <SubMenu closeSubMenu={handleCloseSubMenu} active={isSubMenu} />{" "}
       </p>
       <p>

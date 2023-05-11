@@ -1,6 +1,8 @@
+/* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
+import axios from "axios";
 
 import Wrapper from "../../libs/Wrapper/index";
 
@@ -24,14 +26,57 @@ import Newsletter from "../../components/Newsletter/index";
 
 import styles from "./index.module.css";
 import { Col, Image, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const Contact = () => {
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm();
+  const [isSuccess, setSuccess] = useState(false);
+  const [isError, setError] = useState(false);
+  const [serviceError, setServiceError] = useState(false);
   const [selectedService, setSelectedService] = useState("");
+  const [services, setServices] = useState([]);
 
   const handleService = (service) => {
     setSelectedService(service);
-  };
 
+    setServices((prev) => {
+      return [...prev, service];
+    });
+  };
+  const onSubmit = async (data) => {
+    const resData = {
+      ...data,
+      services,
+    };
+    var config = {
+      method: "post",
+      url: "http://localhost:5000/contact/createOne",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: resData,
+    };
+
+    if (services.length) {
+      await axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          setSuccess(true);
+          reset();
+        })
+        .catch(function (error) {
+          console.log(error);
+          setError(true);
+        });
+    } else {
+      setServiceError(true);
+    }
+  };
   return (
     <div className={`${styles.container}`}>
       <Wrapper>
@@ -58,35 +103,41 @@ const Contact = () => {
             <Card
               selectedService={selectedService}
               onClick={handleService}
-              active
+              services={services}
               title="Mobile App Design & Development"
             />
             <Card
+              services={services}
               selectedService={selectedService}
               onClick={handleService}
               title="Digital Marketing Services"
             />
             <Card
+              services={services}
               selectedService={selectedService}
               onClick={handleService}
               title="Artificial Intelligence"
             />
             <Card
+              services={services}
               selectedService={selectedService}
               onClick={handleService}
               title="Website Design & Development"
             />
             <Card
+              services={services}
               selectedService={selectedService}
               onClick={handleService}
               title="Other"
             />
             <Card
+              services={services}
               selectedService={selectedService}
               onClick={handleService}
               title="UI and UX Design"
             />
             <Card
+              services={services}
               selectedService={selectedService}
               onClick={handleService}
               title="E-commerce Development"
@@ -98,30 +149,60 @@ const Contact = () => {
           <h6 className="H6 t-dark mb-4">Drop your query</h6>
 
           <div className={`d-flex align-items-center justify-content-between`}>
-            <FormInput type="text" placeholder="Enter Name" icon={USERICON} />
+            <FormInput
+              {...register("name")}
+              type="text"
+              placeholder="Enter Name"
+              icon={USERICON}
+            />
             <FormInput
               type="number"
               placeholder="Enter Phone"
               icon={PHONEICON}
+              {...register("phone")}
             />
           </div>
           <FormInput
             type="email"
             placeholder="Enter email address"
             icon={EMAILICON}
+            {...register("email")}
           />
           <FormInput
             type="text"
             placeholder="Enter company name"
             icon={FLAGICON}
+            {...register("companyName")}
           />
           <FormInput
             textarea
             type="text"
             placeholder="Write Something..."
             icon={EDITICON}
+            {...register("message")}
           />
-          <Button className="bg-blue" fixed>
+          {isSuccess && (
+            <p className="text-success p3">
+              Thanks, we'll respond to your query ASAP!
+            </p>
+          )}
+          {!services.length && serviceError && (
+            <p className="text-danger p3">
+              *Please select minimum one service.
+            </p>
+          )}
+          {isError && (
+            <p className="text-danger p3">
+              Something went wrong, please try again!
+            </p>
+          )}
+
+          <Button
+            disabled={isSuccess}
+            onClick={handleSubmit(onSubmit)}
+            className="bg-blue"
+            fixed
+          >
             <Image src={SENDICON} height={18} alt="" /> Submit Now
           </Button>
         </Col>
@@ -133,7 +214,7 @@ const Contact = () => {
             <div className="d-flex align-items-start">
               <div>
                 <div className={`${styles["address-card"]}`}>
-                  <BiHome classname="" size={25} color="#C701FF" />
+                  <BiHome className="" size={25} color="#C701FF" />
                   <h6 className="p1 mt-2  t-dark fw-bold">Address</h6>
                   <p className="p2 text-grey">
                     897 Jonathon Field <br /> Boganburgh
@@ -146,7 +227,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className={`${styles["address-card"]}`}>
-                <FiPhone classname="" size={25} color="#C701FF" />
+                <FiPhone className="" size={25} color="#C701FF" />
                 <h6 className="p1  mt-2 t-dark fw-bold">Contact phone</h6>
                 <p className="p2 text-grey">+987 654 321 0</p>
               </div>
@@ -177,27 +258,36 @@ const Contact = () => {
 
 export default Contact;
 
-const Card = ({ title, onClick, selectedService }) => {
-  let isServiceActive = selectedService === title;
+const Card = ({ title, onClick, services }) => {
+  let filteredService = services?.filter((item) => item === title);
+
   return (
     <div
       onClick={() => onClick(title)}
-      className={`${styles.card} ${isServiceActive && styles.active}`}
+      className={`${styles.card} ${filteredService.length && styles.active}`}
     >
       {title}
     </div>
   );
 };
 
-const FormInput = ({ type, placeholder, icon, textarea }) => {
-  return (
-    <div className={`${styles.input} d-flex align-items-start gap-3`}>
-      <Image src={icon} alt="" />
-      {textarea ? (
-        <textarea type={type} placeholder={placeholder} rows={3} />
-      ) : (
-        <input type={type} placeholder={placeholder} />
-      )}
-    </div>
-  );
-};
+const FormInput = React.forwardRef(
+  ({ type, placeholder, icon, textarea, ...rest }, ref) => {
+    return (
+      <div className={`${styles.input} d-flex align-items-start gap-3`}>
+        <Image src={icon} alt="" />
+        {textarea ? (
+          <textarea
+            {...rest}
+            ref={ref}
+            type={type}
+            placeholder={placeholder}
+            rows={3}
+          />
+        ) : (
+          <input {...rest} ref={ref} type={type} placeholder={placeholder} />
+        )}
+      </div>
+    );
+  }
+);

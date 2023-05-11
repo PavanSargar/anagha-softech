@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Wrapper from "../../libs/Wrapper";
 import { Row, Col, Image } from "react-bootstrap";
 import Button from "../../libs/Button/Button";
@@ -16,11 +17,35 @@ const Footer = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
-  }
+  const onSubmit = async (data) => {
+    setLoading(true);
+    var config = {
+      method: "post",
+      url: "http://localhost:5000/inquiry/createOne",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setLoading(false);
+        setSuccess(true);
+        reset();
+      })
+      .catch(function (error) {
+        setLoading(false);
+        setError(true);
+      });
+  };
 
   return (
     <div className={`${styles.container} py-2`}>
@@ -65,7 +90,10 @@ const Footer = () => {
           </Col>
           <Col md={3} sm={6} xs={12}>
             <h6 className="H8 mb-5 fw-bold text-white">Let’s get a call</h6>
-            <form onSubmit={handleSubmit(onSubmit)} className={`${styles.form}`}>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className={`${styles.form}`}
+            >
               <div className={`${styles["form-group"]}`}>
                 <label htmlFor="email">EMAIL</label>
                 <input
@@ -84,7 +112,6 @@ const Footer = () => {
                   name="PHONE"
                   id="PHONE"
                   {...register("phone", { required: true })}
-
                 />
               </div>
               <div className={`${styles["form-group"]}`}>
@@ -96,7 +123,6 @@ const Footer = () => {
                     name="start"
                     id="start"
                     {...register("timeSlot1", { required: true })}
-
                   />
                   <input
                     // placeholder="Enter your email"
@@ -104,12 +130,18 @@ const Footer = () => {
                     name="end"
                     id="end"
                     {...register("timeSlot2", { required: true })}
-
                   />
                 </div>
               </div>
+              {error && (
+                <p className="text-danger p3 my-2">
+                  Something went wrong please try again later.
+                </p>
+              )}
               <div className="d-flex align-items-center justify-content-start">
-                <button>Get a call back</button>
+                <button disabled={success}>
+                  {success ? "You'll soon here from us!" : "Get a call back"}
+                </button>
               </div>
             </form>
           </Col>

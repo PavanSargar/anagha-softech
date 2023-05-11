@@ -1,4 +1,5 @@
 .container {
+  all: unset;
   padding: 8px 16px;
   background: #03156d;
   border-radius: 90px;
@@ -49,6 +50,9 @@
   align-items: center;
 }
 
+.disabled {
+  pointer-events: none;
+}
 
 @media screen and (max-width: 576px) {
   .container {

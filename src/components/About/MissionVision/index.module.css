@@ -55,12 +55,13 @@
   .card img {
     width: 100%;
   }
+  .container {
+    padding: 2rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
-    .card {
-      padding: 2rem;
-    }
-    
+  .card {
+    padding: 2rem;
   }
-  
+}
