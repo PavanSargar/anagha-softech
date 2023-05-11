@@ -195,10 +195,24 @@ a {
   }
 }
 
-
 @media screen and (max-width: 430px) {
   .slider__container,
-  .slick-track  {
+  .slick-track {
     gap: 3rem !important;
+  }
+  .H2 {
+    font-size: 36px;
+    /* line-height: 40px !important ; */
+  }
+  .H3 {
+    font-size: 32px;
+    line-height: 34px !important;
+  }
+
+  .p-xl {
+    font-size: 1rem;
+  }
+  .p1 {
+    font-size: 1rem;
   }
 }

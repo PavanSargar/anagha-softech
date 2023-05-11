@@ -33,5 +33,26 @@
 }
 
 .input input {
-    padding: 0 1rem;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 391px) {
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .input input {
+    resize: both;
+    font-size: 12px;
+  }
+
+  .input input::placeholder {
+    font-size: 12px;
+  }
+
+  .input button {
+    font-size: 12px;
+  }
 }

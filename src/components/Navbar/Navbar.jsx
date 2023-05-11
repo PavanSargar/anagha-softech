@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
@@ -9,7 +10,7 @@ import { Image } from "react-bootstrap";
 import SubMenu from "../SubMenu";
 import { FiChevronDown } from "react-icons/fi";
 
-const Menu = () => {
+const Menu = ({ mobile, setToggleMenu }) => {
   const [isSubMenu, setSubMenu] = useState(false);
   const [isActive, setIsActive] = useState("");
   const currentUrl = window.location.pathname;
@@ -25,7 +26,10 @@ const Menu = () => {
     <>
       <p>
         <Link
-          onClick={() => setIsActive("")}
+          onClick={() => {
+            setIsActive("");
+            setToggleMenu(false);
+          }}
           className={`${!isActive.length && styles.active} fw-bold `}
           to="/"
         >
@@ -37,22 +41,25 @@ const Menu = () => {
           // onMouseOut={() => setSubMenu(false)}
           onClick={() => {
             setIsActive("our-services");
-            setSubMenu(!isSubMenu);
+            !mobile && setSubMenu(!isSubMenu);
+            setToggleMenu(false);
           }}
-          className={`${
-            isActive === "our-services" && styles.active
+          className={`${isActive === "our-services" && styles.active} ${
+            styles.services
           } fw-bold d-flex align-items-center gap-1`}
-          // to="our-services"
+          to={`${mobile && "our-services"}`}
         >
           Our Services
-          <FiChevronDown fontWeight={700} color="#c701ff" />
+          {!mobile && <FiChevronDown fontWeight={700} color="#c701ff" />}
         </Link>
-
-        <SubMenu closeSubMenu={handleCloseSubMenu} active={isSubMenu} />
+        <SubMenu closeSubMenu={handleCloseSubMenu} active={isSubMenu} />{" "}
       </p>
       <p>
         <Link
-          onClick={() => setIsActive("about")}
+          onClick={() => {
+            setIsActive("about");
+            setToggleMenu(false);
+          }}
           className={`${isActive === "about" && styles.active} fw-bold `}
           to="about"
         >
@@ -61,7 +68,10 @@ const Menu = () => {
       </p>
       <p>
         <Link
-          onClick={() => setIsActive("portfolio")}
+          onClick={() => {
+            setIsActive("portfolio");
+            setToggleMenu(false);
+          }}
           className={`${isActive === "portfolio" && styles.active} fw-bold `}
           to="portfolio"
         >
@@ -70,7 +80,10 @@ const Menu = () => {
       </p>
       <p>
         <Link
-          onClick={() => setIsActive("career")}
+          onClick={() => {
+            setIsActive("career");
+            setToggleMenu(false);
+          }}
           className={`${isActive === "career" && styles.active} fw-bold `}
           to="career"
         >
@@ -123,7 +136,7 @@ const Navbar = () => {
             className={`${styles["__navbar-menu_container"]} ${styles["slide-left"]}`}
           >
             <div className={styles["__navbar-menu_container-links"]}>
-              <Menu />
+              <Menu setToggleMenu={setToggleMenu} mobile />
               <div className={styles["__navbar-menu_container-links-sign"]}>
                 <Button className="border">
                   <Link to="/contact">Contact Us</Link>

@@ -98,7 +98,7 @@
   top: 40px;
   right: 0;
   margin-top: 1rem;
-  min-width: 210px;
+  min-width: 280px;
   border-radius: 5px;
   box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
 }
@@ -147,7 +147,13 @@
     top: 20px;
   }
   .__navbar-menu_container-links-sign {
-    display: block;
+    display: flex;
+    gap: 1rem;
+  }
+  .services {
+    display: flex;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
   }
 }
 
