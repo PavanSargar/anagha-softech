@@ -56,7 +56,7 @@ const OurMission = () => {
       </div>
 
       <div className={`${styles.cards} ${styles.mobile} card__gap-slick mt-4`}>
-        <Carousel items={1} scroll={1}>
+        <Carousel indicator items={1} scroll={1}>
           <Card
             center
             // fixed

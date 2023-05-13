@@ -41,12 +41,12 @@ const OurClients = ({ animation }) => {
       </div>
 
       <div className={`${styles.mobile} mobile__slick-slide `}>
-        <Carousel items={1} scroll={1}>
-          <Image src={LOGO1} alt="" />
-          <Image src={LOGO2} alt="" />
-          <Image src={LOGO3} alt="" />
-          <Image src={LOGO4} alt="" />
-          <Image src={LOGO5} alt="" />
+        <Carousel indicator items={1} scroll={1}>
+          <Image className="mb-5" src={LOGO1} alt="" />
+          <Image className="mb-5" src={LOGO2} alt="" />
+          <Image className="mb-5" src={LOGO3} alt="" />
+          <Image className="mb-5" src={LOGO4} alt="" />
+          <Image className="mb-5" src={LOGO5} alt="" />
         </Carousel>
       </div>
     </div>

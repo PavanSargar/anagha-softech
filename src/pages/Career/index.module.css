@@ -61,5 +61,8 @@
   .job-features span {
    font-size: 14px;
   }
+  .benefit-card {
+    margin-bottom: -2rem;
+  }
  
 }

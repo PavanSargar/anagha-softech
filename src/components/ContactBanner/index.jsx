@@ -4,6 +4,7 @@ import React from "react";
 import { TbSend } from "react-icons/tb";
 
 import styles from "./index.module.css";
+import { Link } from "react-router-dom";
 
 const ContactBanner = ({ animate }) => {
   return (
@@ -14,11 +15,13 @@ const ContactBanner = ({ animate }) => {
       <h4 className="H4 text-white w-50">
         Have a Requirement? Let Experts at Anagha Softech Handle It.
       </h4>
-      <button>
-        {" "}
-        <TbSend color="fff" size={18} />
-        Contact Us
-      </button>
+      <Link to="/contact">
+        <button>
+          {" "}
+          <TbSend color="fff" size={18} />
+          Contact Us
+        </button>
+      </Link>
     </div>
   );
 };

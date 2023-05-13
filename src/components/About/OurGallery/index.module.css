@@ -1,3 +1,21 @@
 .container {
   background-color: #edf7f7;
 }
+
+.images.mobile {
+  display: none;
+}
+
+.images.desktop img {
+  width: 350px !important;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .images.mobile {
+    display: block;
+  }
+  .images.desktop {
+    display: none !important;
+  }
+}

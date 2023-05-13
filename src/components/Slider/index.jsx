@@ -7,7 +7,7 @@ import {
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
 
-const Carousel = ({ children, items=3, scroll=1 }) => {
+const Carousel = ({ children, items=3, scroll=1, indicator=false }) => {
   const settings = {
     // dots: true,
     className: "slider__container",
@@ -19,10 +19,19 @@ const Carousel = ({ children, items=3, scroll=1 }) => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
+        breakpoint: 1268,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -40,6 +49,7 @@ const Carousel = ({ children, items=3, scroll=1 }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: indicator,
         },
       },
       {
@@ -47,6 +57,8 @@ const Carousel = ({ children, items=3, scroll=1 }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: indicator,
+
         },
       },
     ],

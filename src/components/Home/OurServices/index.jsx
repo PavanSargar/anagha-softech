@@ -25,7 +25,7 @@ const OurServices = ({ animation }) => {
         </h3>
       </div>
       <div className={`${styles.cards} mt-5 `}>
-        <Carousel>
+        <Carousel indicator>
           <Card
             title="Application Development"
             description="From idea to launch, we work with you to create intuitive, feature-rich web or mobile applications that deliver exceptional user experience."

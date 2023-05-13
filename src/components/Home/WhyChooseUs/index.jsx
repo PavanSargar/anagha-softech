@@ -67,7 +67,7 @@ const WhyChooseUs = ({ animation }) => {
       </div>
 
       <div className={`${styles.cards} ${styles.mobile} `}>
-        <Carousel items={1} scroll={1}>
+        <Carousel indicator items={1} scroll={1}>
           {data.map((item, id) => (
             <Card
               description={item.description}

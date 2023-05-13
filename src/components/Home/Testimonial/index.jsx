@@ -97,7 +97,7 @@ const Testimonials = ({ animation }) => {
       </div>
 
       <div className={`${styles.slider}`}>
-        <Carousel items={4} scroll={1}>
+        <Carousel indicator items={4} scroll={1}>
           {data.map((item, i) => (
             <div className="mt-5 h-50" key={i}>
               <p className="p-xl text-center t-primary">

@@ -16,7 +16,7 @@
 }
 
 .left h2 {
-  line-height: 40px;
+  line-height: 64px;
   color: #03156d;
   letter-spacing: -0.02em;
 }
@@ -30,7 +30,7 @@
 }
 
 .overview {
-    width: 22%;
+  width: 22%;
 }
 
 .overview h2,
@@ -51,16 +51,23 @@
   line-height: 24px;
 }
 
-
 @media screen and (max-width: 992px) {
-    .overview-components {
-        flex-direction: column;
-    }
-    .overview {
-        width: auto;
-    }
+  .overview-components {
+    flex-direction: column;
+  }
+  .overview {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .left h2 {
+    line-height: 40px;
+  }
 }
 
 @media screen and (max-width: 450px) {
-
+  .left {
+    padding-right: 3rem !important;
+  }
 }
