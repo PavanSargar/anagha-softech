@@ -66,17 +66,15 @@ const WhyChooseUs = ({ animation }) => {
         ))}
       </div>
 
-      <div
-        className={`${styles.cards} ${styles.mobile} `}
-      >
+      <div className={`${styles.cards} ${styles.mobile} `}>
         <Carousel items={1} scroll={1}>
           {data.map((item, id) => (
-              <Card
-                description={item.description}
-                key={id}
-                icon={item.icon}
-                title={item.title}
-              />
+            <Card
+              description={item.description}
+              key={id}
+              icon={item.icon}
+              title={item.title}
+            />
           ))}
         </Carousel>
       </div>

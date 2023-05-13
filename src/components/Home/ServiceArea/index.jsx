@@ -7,10 +7,14 @@ import Button from "../../../libs/Button/Button";
 import IMAGE from "../../../assets/images/service-area.svg";
 
 import styles from "./index.module.css";
+import { Link } from "react-router-dom";
 
 const ServiceArea = ({ animation }) => {
   return (
-    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
+    <div
+      data-aos={animation}
+      className={`${styles.container} section-padding mt-5`}
+    >
       <div
         className={`${styles.heading} d-flex flex-column align-items-center justify-content-center`}
       >
@@ -24,7 +28,9 @@ const ServiceArea = ({ animation }) => {
           success. Explore our services to see how we can help your business
           thrive.
         </p>
-        <Button className="bg-blue">Know More</Button>
+        <Link to="our-services">
+          <Button className="bg-blue">Know More</Button>
+        </Link>
       </div>
       <div
         className={`${styles.image} d-flex align-items-center justify-content-center `}

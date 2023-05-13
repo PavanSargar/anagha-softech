@@ -1,12 +1,7 @@
 .container {
   overflow-x: hidden;
 }
-.right {
-  background-color: #18a8ff;
-  width: 600px;
-  height: 500px;
-  position: relative;
-}
+
 .left {
   padding-right: 6rem !important;
 }
@@ -21,7 +16,7 @@
 }
 
 .left h2 {
-  line-height: 64px;
+  line-height: 40px;
   color: #03156d;
   letter-spacing: -0.02em;
 }
@@ -64,4 +59,8 @@
     .overview {
         width: auto;
     }
+}
+
+@media screen and (max-width: 450px) {
+
 }
