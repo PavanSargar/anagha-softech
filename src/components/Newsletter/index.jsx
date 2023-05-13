@@ -5,6 +5,7 @@ import Wrapper from "../../libs/Wrapper/index";
 import Button from "../../libs/Button/Button";
 
 import styles from "./index.module.css";
+import Config from "../../../Config";
 
 const Newsletter = ({ animation }) => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const Newsletter = ({ animation }) => {
     if (email.includes("@") && email.includes(".")) {
       var config = {
         method: "post",
-        url: "http://localhost:5000/newsletter/createOne",
+        url: `${Config.backendUrl}/newsletter/createOne`,
         headers: {
           "Content-Type": "application/json",
         },

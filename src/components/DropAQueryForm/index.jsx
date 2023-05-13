@@ -4,6 +4,7 @@ import Button from "../../libs/Button/Button";
 import axios from "axios";
 import styles from "./index.module.css";
 import { useForm } from "react-hook-form";
+import Config from "../../../Config";
 
 const DropAQueryForm = () => {
   const [isSuccess, setSuccess] = useState(false);
@@ -19,7 +20,7 @@ const DropAQueryForm = () => {
   const onSubmit = async (data) => {
     var config = {
       method: "post",
-      url: "http://localhost:5000/query/createOne",
+      url: `${Config.backendUrl}/query/createOne`,
       headers: {
         "Content-Type": "application/json",
       },

@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import CareerDetail from "./pages/CareerDetail";
 
 function App() {
   const location = useLocation();
@@ -45,6 +46,8 @@ function App() {
           element={<Portfolio animation="fade-down" />}
         />
         <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+        <Route path="/career/:id" element={<CareerDetail />} />
+
         <Route path="/contact" element={<Contact />} />
       </Routes>
 

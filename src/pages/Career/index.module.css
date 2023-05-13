@@ -54,15 +54,19 @@
     border-radius: 40px;
     margin: 2rem 2rem;
   }
- 
 }
 
 @media screen and (max-width: 576px) {
   .job-features span {
-   font-size: 14px;
+    font-size: 14px;
   }
   .benefit-card {
-    margin-bottom: -2rem;
+    margin-bottom: -2rem !important;
   }
- 
+}
+
+@media screen and (max-width: 395px) {
+  .benefit-card {
+    margin: 0.5rem;
+  }
 }

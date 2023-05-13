@@ -13,12 +13,16 @@ import { RxDotFilled } from "react-icons/rx";
 import Button from "../../libs/Button/Button";
 import styles from "./index.module.css";
 import { Col, Image, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Career = ({ animation }) => {
   return (
     <div className={`${styles.container} pt-5 mt-3`}>
       <Wrapper>
-        <Row data-aos={animation} className="align-items-center justify-content-between flex-wrap ">
+        <Row
+          data-aos={animation}
+          className="align-items-center justify-content-between flex-wrap "
+        >
           <Col sm={12} md={6}>
             <div className={`${styles.heading} mb-4 `}>
               <p className="p1 fw-bold text-pink">CAREER OPPORTUNITY</p>
@@ -49,7 +53,7 @@ const Career = ({ animation }) => {
         </div>
 
         <div
-        data-aos={animation}
+          data-aos={animation}
           className={`${styles["benefit-cards"]} mt-5 flex-wrap d-flex justify-content-between align-items-center gap-5`}
         >
           <BenefitCard />
@@ -74,7 +78,7 @@ const Career = ({ animation }) => {
           className={`${styles.tabs} d-flex align-items-center justify-content-center gap-2`}
         >
           <Button className="bg-blue">All</Button>
-          <Button className="transparent">UI/UX Designer</Button>
+          <Button className="transparent">UI/UX</Button>
           <Button className="transparent">Developer</Button>
           <Button className="transparent">Other</Button>
         </div>
@@ -120,29 +124,33 @@ const BenefitCard = () => {
 };
 
 const JobCard = () => {
+  const description =
+    "We’re looking for a mid-level product designer to join our team.";
   return (
-    <div className={`${styles["job-card"]}`}>
-      <div className="d-flex align-items-center gap-2">
-        <h6 className="p-lg t-dark fw-bold">Product Designer</h6>
-        <span className={`${styles["job-category"]} d-flex align-items-center`}>
-          <RxDotFilled size={18} color="000" /> Design
-        </span>
+    <Link to={`career-page`}>
+      <div className={`${styles["job-card"]}`}>
+        <div className="d-flex align-items-center gap-2">
+          <h6 className="p-lg t-dark fw-bold">Product Designer</h6>
+          <span
+            className={`${styles["job-category"]} d-flex align-items-center`}
+          >
+            <RxDotFilled size={18} color="000" /> Design
+          </span>
+        </div>
+        <p className="p1 mt-3 text-grey">{description.slice(0, 63)}...</p>
+        <div
+          className={`${styles["job-features"]} mt-4 pt-2 d-flex align-items-center gap-5`}
+        >
+          <span className="d-flex align-items-center ">
+            <GrLocation className="me-2" size={20} color="#667790" />
+            Remote
+          </span>
+          <span className="d-flex align-items-center ">
+            <TbClockHour4 className="me-2" color="#667790" size={22} />
+            Full time
+          </span>
+        </div>
       </div>
-      <p className="p1 mt-3 text-grey">
-        We’re looking for a mid-level product designer to join our team.
-      </p>
-      <div
-        className={`${styles["job-features"]} mt-4 pt-2 d-flex align-items-center gap-5`}
-      >
-        <span className="d-flex align-items-center ">
-          <GrLocation className="me-2" size={20} color="#667790" />
-          Remote
-        </span>
-        <span className="d-flex align-items-center ">
-          <TbClockHour4 className="me-2" color="#667790" size={22} />
-          Full time
-        </span>
-      </div>
-    </div>
+    </Link>
   );
 };

@@ -55,7 +55,7 @@ const Contact = () => {
     };
     var config = {
       method: "post",
-      url: "http://localhost:5000/contact/createOne",
+      url: `${Config.backendUrl}/contact/createOne`,
       headers: {
         "Content-Type": "application/json",
       },

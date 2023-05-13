@@ -27,7 +27,7 @@ const Footer = () => {
     setLoading(true);
     var config = {
       method: "post",
-      url: "http://localhost:5000/inquiry/createOne",
+      url: `${Config.backendUrl}/inquiry/createOne`,
       headers: {
         "Content-Type": "application/json",
       },
