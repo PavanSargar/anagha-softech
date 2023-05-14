@@ -130,8 +130,16 @@ const Navbar = () => {
         <Button className="border">
           <Link to="/contact">Contact Us</Link>
         </Button>
-
-        <Button>Drop a Query</Button>
+        <Button
+          onClick={() =>
+            window.scrollTo({
+              top: document.documentElement.scrollHeight,
+              behavior: "smooth",
+            })
+          }
+        >
+          Get a call
+        </Button>
       </div>
       <div className={styles["__navbar-menu"]}>
         {toggleMenu ? (
@@ -158,7 +166,16 @@ const Navbar = () => {
                   <Link to="/contact">Contact Us</Link>
                 </Button>
 
-                <Button>Drop a Query</Button>
+                <Button
+                  onClick={() =>
+                    window.scrollTo({
+                      top: document.documentElement.scrollHeight,
+                      behavior: "smooth",
+                    })
+                  }
+                >
+                  Get a call
+                </Button>
               </div>
             </div>
           </div>

@@ -29,14 +29,21 @@
   .reviews {
     display: none;
   }
+  .heading img {
+    display: none;
+  }
 
   .card {
     justify-content: center;
     border-bottom-color: #18a8ff;
-
   }
 
   .slider {
     display: block;
+  }
+
+  .slider img:first-child {
+    border: none;
+    margin-bottom: 1rem;
   }
 }

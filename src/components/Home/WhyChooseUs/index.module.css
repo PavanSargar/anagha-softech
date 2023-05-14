@@ -9,21 +9,25 @@
 }
 
 .connect-line {
-    display: none;
+  display: none;
 }
 
 .connect-line:last-child {
-    display: none;
+  display: none;
 }
 
 .cards {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .cards.mobile {
   display: none;
 }
 
+.description h6 {
+  font-size: 22px;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 768px) {
   .cards {
@@ -42,7 +46,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    
   }
 
   .description p {
@@ -50,13 +53,15 @@
   }
 
   .cards.desktop {
-    display: none !important; 
+    display: none !important;
   }
 }
-
 
 @media screen and (max-width: 576px) {
   .heading h3 {
     width: 100%;
+  }
+  .description h6 {
+    font-size: 20px;
   }
 }

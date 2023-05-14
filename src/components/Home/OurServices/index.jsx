@@ -27,36 +27,42 @@ const OurServices = ({ animation }) => {
       <div className={`${styles.cards} mt-5 `}>
         <Carousel indicator>
           <Card
+            services
             title="Application Development"
             description="From idea to launch, we work with you to create intuitive, feature-rich web or mobile applications that deliver exceptional user experience."
             link="/service/mobile-app-development"
             icon={AVATAR}
           />
           <Card
+            services
             title="Cybersecurity"
             description="Protect your sensitive data and keep your systems secure with our comprehensive cybersecurity services."
             link="/service/cyber-security-"
             icon={THUNDER}
           />
           <Card
+            services
             title="Product Development"
             description="Our team has experience creating products for various industries, & we use the latest technologies to ensure exceptional performance and user experience."
             link="/our-services"
             icon={BADGE}
           />
           <Card
+            services
             title="Application Development"
             description="From idea to launch, we work with you to create intuitive, feature-rich web or mobile applications that deliver exceptional user experience."
             link="/"
             icon={AVATAR}
           />
           <Card
+            services
             title="Cybersecurity"
             description="Protect your sensitive data and keep your systems secure with our comprehensive cybersecurity services."
             link="/"
             icon={THUNDER}
           />
           <Card
+            services
             title="Product Development"
             description="Our team has experience creating products for various industries, & we use the latest technologies to ensure exceptional performance and user experience."
             link="/our-services"

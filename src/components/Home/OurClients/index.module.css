@@ -9,6 +9,10 @@
   flex-wrap: wrap;
 }
 
+.clients.desktop img {
+    max-width: 200px;
+}
+
 .description {
   width: 30%;
 }

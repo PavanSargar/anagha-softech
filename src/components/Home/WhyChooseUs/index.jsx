@@ -91,7 +91,7 @@ const Card = ({ description, icon, title }) => {
         <Image src={icon} alt="" />
       </div>
       <div className={`${styles.description} mt-5`}>
-        <h6 className="H6 mb-3">{title}</h6>
+        <h6 className=" mb-3">{title}</h6>
         <p className="para-text mb-5">{description}</p>
       </div>
     </div>

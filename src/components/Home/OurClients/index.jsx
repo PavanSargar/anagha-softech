@@ -3,11 +3,11 @@ import React from "react";
 
 import styles from "./index.module.css";
 
-import LOGO1 from "../../../assets/dummyLogos/1.svg";
-import LOGO2 from "../../../assets/dummyLogos/2.svg";
-import LOGO3 from "../../../assets/dummyLogos/3.svg";
-import LOGO4 from "../../../assets/dummyLogos/4.svg";
-import LOGO5 from "../../../assets/dummyLogos/5.svg";
+import LOGO1 from "../../../assets/dummyLogos/1.png";
+import LOGO2 from "../../../assets/dummyLogos/2.png";
+import LOGO3 from "../../../assets/dummyLogos/3.png";
+import LOGO4 from "../../../assets/dummyLogos/4.png";
+import LOGO5 from "../../../assets/dummyLogos/5.png";
 import { Image } from "react-bootstrap";
 import Carousel from "../../Slider";
 
@@ -31,7 +31,7 @@ const OurClients = ({ animation }) => {
       </div>
 
       <div
-        className={`${styles.clients} ${styles.desktop} mt-5 d-flex align-items-center justify-content-center `}
+        className={`${styles.clients} ${styles.desktop} gap-5 mt-5 d-flex align-items-center justify-content-center `}
       >
         <Image src={LOGO1} alt="" />
         <Image src={LOGO2} alt="" />

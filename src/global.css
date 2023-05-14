@@ -138,6 +138,22 @@ a {
   margin-top: -0.6rem;
 }
 
+
+
+
+.card__services {
+  height: 380px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.jQMQWL {
+  max-width: 300px !important;
+  font-size: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .slick-initialized .slick-slide {
     display: flex;
@@ -214,5 +230,12 @@ a {
   }
   .p1 {
     font-size: 1rem;
+  }
+
+  .card__services {
+    height: 380px;
+  }
+  .card__services a {
+    margin-top: -1rem;
   }
 }

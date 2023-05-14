@@ -8,9 +8,12 @@ import EMAILICON from "../../assets/icons/email.svg";
 import PHONEICON from "../../assets/icons/phone.svg";
 import HOMEICON from "../../assets/icons/home.svg";
 
+import Config from "../../../Config";
+
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import DayTimePicker from "@mooncake-dev/react-day-time-picker";
 
 const Footer = () => {
   const {
@@ -19,9 +22,11 @@ const Footer = () => {
     handleSubmit,
     reset,
   } = useForm();
+  const [date, setDate] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isDatePicker, setDatePicker] = useState(false);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -31,7 +36,11 @@ const Footer = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: data,
+      data: {
+        email: data.email,
+        phone: data.phone,
+        timeSlot: date,
+      },
     };
 
     await axios(config)
@@ -39,6 +48,7 @@ const Footer = () => {
         console.log(JSON.stringify(response.data));
         setLoading(false);
         setSuccess(true);
+        setDate("");
         reset();
       })
       .catch(function (error) {
@@ -116,8 +126,7 @@ const Footer = () => {
               </div>
               <div className={`${styles["form-group"]}`}>
                 <label htmlFor="date">TIME SLOT</label>
-                <div className="d-flex align-items-center gap-2">
-                  <input
+                {/* <input
                     // placeholder="Enter your email"
                     type="date"
                     name="start"
@@ -130,8 +139,42 @@ const Footer = () => {
                     name="end"
                     id="end"
                     {...register("timeSlot2", { required: true })}
-                  />
-                </div>
+                  /> */}
+                {/* 
+                  <DatePicker
+                    selected={date}
+                    onChange={handleDateChange}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="Time"
+                  /> */}
+
+                <input
+                  placeholder="Select your time slot"
+                  type="text"
+                  name="timeSlot"
+                  id="timeSlot"
+                  value={date}
+                  onClick={() => setDatePicker(!isDatePicker)}
+                />
+
+                {isDatePicker && (
+                  <div className="position-relative">
+                    <div
+                      className={`${styles.datepicker} position-absolute  bg-white`}
+                    >
+                      <DayTimePicker
+                        onConfirm={(dateTime) => {
+                          setDatePicker(false);
+                          setDate(dateTime);
+                        }}
+                        timeSlotSizeMinutes={15}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
               {error && (
                 <p className="text-danger p3 my-2">

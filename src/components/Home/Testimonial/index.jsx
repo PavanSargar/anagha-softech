@@ -4,9 +4,17 @@ import React, { useState } from "react";
 
 import styles from "./index.module.css";
 
-import LOGO from "../../../assets/dummyLogos/3.svg";
+import LOGO from "../../../assets/dummyLogos/3.png";
 import QUOTEICON from "../../../assets/icons/quotes.svg";
 import USER from "../../../assets/images/user.svg";
+
+import BIRED from "../../../assets/dummyLogos/bired.png";
+import CRESTOIL from "../../../assets/dummyLogos/crest-oil.png";
+import RUPTECHCORP from "../../../assets/dummyLogos/ruptechcorp-logo.png";
+import YVREDDY from "../../../assets/dummyLogos/yv-reddy-logo.png";
+import ACE from "../../../assets/dummyLogos/ace-auto-products-logo.png";
+import MULUGU from "../../../assets/dummyLogos/mulugulogo.jpg";
+import MG from "../../../assets/dummyLogos/mgcancerhospital-logo.png";
 
 import Carousel from "../../../components/Slider/index";
 
@@ -14,44 +22,51 @@ import { Image } from "react-bootstrap";
 
 const data = [
   {
-    review: `Anagha Softech has been our go-to IT partner for the last 3 years. Their expertise in mobile app development has helped us grow our business and reach a wider audience. Their team is highly professional and always delivers on time.`,
-    name: `John Smith`,
-    company: `CEO of XYZ Company`,
-    role: "CEO",
+    review: `My experience with Anagha Softech has been fantastic. I know many web designing companies but these Anagha Softech Team guys are really passionate about work. They have presented my ideas on screen perfectly. I look forward to cope up with Anagha Softech for Many more projects!`,
+    name: `AP Bired`,
+    company: `AP Bired`,
+    role: "Director",
     isActive: true,
+    image: BIRED,
   },
   {
-    review: `We have been working with Anagha Softech for our cybersecurity needs, and they have exceeded our expectations. Their SIEM and vulnerability assessment services have helped us stay ahead of the curve and protect our data from cyber threats`,
-    name: `Sarah Jones`,
-    company: `IT Director at ABC Corporation`,
-    role: "IT Director",
+    review: `Anagha Softech professional and supportive throughout our dealing with them. They developed us a project in very quick time and gave us many good ideas during this project. We would have absolutely no hesitation in using their services again and recommending them to our other business associates.`,
+    name: `Crest Oil`,
+    company: `Crest Oil`,
+    role: "Director",
     isActive: false,
+    image: CRESTOIL,
   },
   {
-    review: `Anagha Softech has helped us streamline our HR processes and make hiring easier. Their staffing solutions have saved us time and money and allowed us to focus on growing our business.`,
-    name: `David Lee`,
-    company: `HR Manager at LMN Enterprises`,
-    role: "HR Manager",
+    review: `Anagha Softech has shown great commitment and truly appreciate their dedicated work as a team and delivered excellent piece of work. I am very happy with the product and its ease of use. I highly recommend them and would be happy to work with them in our future projects…`,
+    name: `Ramesh Uppalapati`,
+    company: `RUP Tech Corp, USA`,
+    role: "Director of Operations",
     isActive: false,
+    image: RUPTECHCORP,
   },
   {
-    review: `We approached Anagha Softech for a product development project and were impressed with their attention to detail and customer-centric approach. Their team worked closely with us to deliver a high-quality product that exceeded our expectations.`,
-    name: `Jane Doe`,
-    company: `COO at PQR Innovations`,
-    role: "COO",
+    review: `Anagha Softech has shown great commitment and truly appreciate their dedicated work as a team and delivered excellent piece of work. I am very happy with the product and its ease of use. I highly recommend them and would be happy to work with them in our future projects…`,
+    name: `Dr. Y V Reddy`,
+    company: `Reserve Bank of India`,
+    role: "Former Governor",
     isActive: false,
+    image: YVREDDY,
   },
 ];
 
 const Testimonials = ({ animation }) => {
-  const [currentActive, setCurrentActive] = useState("John Smith");
+  const [currentActive, setCurrentActive] = useState("AP Bired");
 
   const selectedReview = data.filter((item) => {
     return item.name === currentActive;
   });
 
   return (
-    <div data-aos={animation} className={`${styles.container} section-padding mt-5`}>
+    <div
+      data-aos={animation}
+      className={`${styles.container} section-padding mt-5`}
+    >
       <div
         className={`${styles.heading} d-flex flex-column align-items-center justify-content-center`}
       >
@@ -68,7 +83,7 @@ const Testimonials = ({ animation }) => {
           services and how we have helped their businesses grow and succeed.
         </p>
         <div className="mt-4 d-flex align-items-center justify-content-center">
-          <Image src={LOGO} alt="" />
+          <Image src={selectedReview[0].image} alt="" />
         </div>
       </div>
 
@@ -100,14 +115,14 @@ const Testimonials = ({ animation }) => {
         <Carousel indicator items={4} scroll={1}>
           {data.map((item, i) => (
             <div className="mt-5 h-50" key={i}>
-              <p className="p-xl text-center t-primary">
-                "{data[i]?.review}"
-              </p>
+              <div className="d-flex align-items-center justify-content-center">
+                <Image thumbnail src={data[i].image} alt="" />
+              </div>
+
+              <p className="p-xl text-center t-primary">"{data[i]?.review}"</p>
               <span className="mt-3 d-flex align-items-center justify-content-center">
                 <Image className="mb-3" src={QUOTEICON} alt="" />
-                <p className="p2 mx-2 t-bold t-primary">
-                  {data[i]?.name}
-                </p>{" "}
+                <p className="p2 mx-2 t-bold t-primary">{data[i]?.name}</p>{" "}
                 <p>|</p>
                 <p className="p2 ms-2 text-grey">{data[i]?.company}</p>
               </span>
