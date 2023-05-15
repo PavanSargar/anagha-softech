@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -5,9 +6,7 @@ import { FaUpload } from "react-icons/fa";
 
 import styles from "./index.module.css";
 
-const FileUpload = () => {
-  const [pdfFile, setPdfFile] = useState(null);
-
+const FileUpload = ({ pdfFile, setPdfFile }) => {
   const onDrop = useCallback((acceptedFiles) => {
     // Make sure only one file was dropped
     if (acceptedFiles.length !== 1) {
@@ -21,6 +20,7 @@ const FileUpload = () => {
       return;
     }
 
+    console.log(acceptedFiles[0]);
     // Set the PDF file
     setPdfFile(acceptedFiles[0]);
   }, []);

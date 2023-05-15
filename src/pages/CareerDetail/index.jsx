@@ -18,6 +18,8 @@ import PHONEICON from "../../assets/inputIcons/phone.svg";
 import EMAILICON from "../../assets/inputIcons/email.svg";
 
 import styles from "./index.module.css";
+import Config from "../../../Config";
+import axios from "axios";
 
 const CareerDetail = () => {
   const {
@@ -27,9 +29,36 @@ const CareerDetail = () => {
   } = useForm();
   const [isSuccess, setSuccess] = useState(false);
   const [isError, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [pdfFile, setPdfFile] = useState(null);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append("fileUrl", pdfFile);
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+
+    var config = {
+      method: "post",
+      url: `${Config.backendUrl}/job-application/createOne`,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data: formData,
+    };
+
+    await axios(config)
+      .then(function (response) {
+        setSuccess(true);
+        setLoading(false);
+        setError(false)
+      })
+      .catch(function (error) {
+        setError(true);
+        setLoading(false);
+      });
   };
 
   return (
@@ -117,15 +146,20 @@ const CareerDetail = () => {
               )}
 
               <h4 className="p2 mb-3">Upload Resume*</h4>
-              <FileUpload />
+              <FileUpload pdfFile={pdfFile} setPdfFile={setPdfFile} />
               <div className="mb-4"></div>
+              {}
               <Button
                 disabled={isSuccess}
                 onClick={handleSubmit(onSubmit)}
                 className="bg-blue"
                 fixed
               >
-                Submit Application
+                {loading
+                  ? "Submitting..."
+                  : isSuccess
+                  ? "Application Submitted Successfully"
+                  : "Submit Application"}
               </Button>
             </form>
           </div>
