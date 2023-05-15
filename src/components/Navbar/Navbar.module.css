@@ -34,9 +34,16 @@
 }
 
 .__navbar-sign {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  display: -webkit-box; /* Safari 6-9.0 */
+  display: -webkit-flex; /* Safari 9.1-10.0 */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Standard syntax */
+
+  -webkit-justify-content: flex-end; /* Safari 6-9.0 */
+  justify-content: flex-end; /* Standard syntax */
+
+  -webkit-align-items: center; /* Safari 6-9.0 */
+  align-items: center; /* Standard syntax */
 }
 
 .__navbar-links_container p,
