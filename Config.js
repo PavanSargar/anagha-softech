@@ -1,5 +1,5 @@
 const Config = {
-  backendUrl: "http://localhost:5000",
+  backendUrl: "https://anagha-server.onrender.com",
 };
 
 export default Config;
