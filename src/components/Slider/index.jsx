@@ -7,7 +7,13 @@ import {
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
 
-const Carousel = ({ children, items=3, scroll=1, indicator=false }) => {
+const Carousel = ({
+  children,
+  items = 3,
+  scroll = 1,
+  indicator = false,
+  autoScroll = false,
+}) => {
   const settings = {
     // dots: true,
     className: "slider__container",
@@ -17,6 +23,8 @@ const Carousel = ({ children, items=3, scroll=1, indicator=false }) => {
     slidesToScroll: scroll,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    autoplay: autoScroll,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1268,
@@ -58,7 +66,6 @@ const Carousel = ({ children, items=3, scroll=1, indicator=false }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: indicator,
-
         },
       },
     ],

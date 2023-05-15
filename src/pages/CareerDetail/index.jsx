@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import PORTFOLIOIMG from "../../assets/images/portfolio-img.png";
 import { FiArrowLeft } from "react-icons/fi";
 import Wrapper from "../../libs/Wrapper/index";
 
 import { Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FileUpload from "../../components/FileUpload";
 import Button from "../../libs/Button/Button";
 import { useForm } from "react-hook-form";
@@ -31,6 +31,9 @@ const CareerDetail = () => {
   const [isError, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pdfFile, setPdfFile] = useState(null);
+  const [jdData, setJdData] = useState({});
+
+  const { id } = useParams();
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -53,13 +56,33 @@ const CareerDetail = () => {
       .then(function (response) {
         setSuccess(true);
         setLoading(false);
-        setError(false)
+        setError(false);
       })
       .catch(function (error) {
         setError(true);
         setLoading(false);
       });
   };
+
+  const getJobDescriptionData = async () => {
+    var config = {
+      method: "get",
+      url: `${Config.backendUrl}/jd/findOne/${id}`,
+    };
+
+    await axios(config)
+      .then(function (response) {
+        setJdData(response.data?.body);
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getJobDescriptionData();
+  }, []);
 
   return (
     <Wrapper>
@@ -71,10 +94,8 @@ const CareerDetail = () => {
         </Link>
 
         <div className={`${styles.content} mt-5`}>
-          <h4 className="H4 t-dark">Product Designer </h4>
-          <p className="p1 text-grey">
-            We're looking for a mid-level product designer to join our team.
-          </p>
+          <h4 className="H4 t-dark">{jdData?.title} </h4>
+          <p className="p1 text-grey">{jdData?.shortDescription}</p>
 
           {/* <div
             className={`${styles["ourportfolio"]} mt-5 d-flex gap-5 align-items-start justify-content-center`}
@@ -93,7 +114,8 @@ const CareerDetail = () => {
 
           <div className="mt-5">
             <h4 className="H5 mb-3">Description</h4>
-            <p className="text-grey p1">
+            <div dangerouslySetInnerHTML={{ __html: jdData?.description }}></div>
+            {/* <p className="text-grey p1">
               Nunc non mi vulputate, vehicula nisi vel, gravida dolor. Mauris eu
               rhoncus neque. Nullam tempor tempor magna a ultricies. Sed leo
               eros, volutpat gravida ante at, vestibulum porttitor ante. In
@@ -103,7 +125,7 @@ const CareerDetail = () => {
               eros, volutpat gravida ante at, vestibulum porttitor ante. In
               consectetur, purus a ultricies tempus, nisi dui commodo turpi.Nunc
               non mi vulputate, vehicula nisi.
-            </p>
+            </p> */}
           </div>
 
           <div className="mt-5">

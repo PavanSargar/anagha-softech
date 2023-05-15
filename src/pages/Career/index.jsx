@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import Wrapper from "../../libs/Wrapper/index";
 import CAREERIMG from "../../assets/images/career-img.png";
@@ -14,8 +15,33 @@ import Button from "../../libs/Button/Button";
 import styles from "./index.module.css";
 import { Col, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Config from "../../../Config";
 
 const Career = ({ animation }) => {
+  const [jobDescriptions, setJobDescriptions] = useState([]);
+
+  const getJobDescriptions = async () => {
+    var config = {
+      method: "get",
+      url: `${Config.backendUrl}/jd/list`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios(config)
+      .then(function (response) {
+        setJobDescriptions(response.data?.body);
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getJobDescriptions();
+  }, []);
   return (
     <div className={`${styles.container} pt-5 mt-3`}>
       <Wrapper>
@@ -73,36 +99,58 @@ const Career = ({ animation }) => {
             industry. Lorem Ipsum has.
           </p>
         </div>
+        {jobDescriptions?.length ? (
+          <>
+            <div
+              className={`${styles.tabs} d-flex align-items-center justify-content-center gap-2`}
+            >
+              <Button className="bg-blue">All</Button>
+              <Button className="transparent">UI/UX</Button>
+              <Button className="transparent">Developer</Button>
+              <Button className="transparent">Other</Button>
+            </div>
 
-        <div
-          className={`${styles.tabs} d-flex align-items-center justify-content-center gap-2`}
-        >
-          <Button className="bg-blue">All</Button>
-          <Button className="transparent">UI/UX</Button>
-          <Button className="transparent">Developer</Button>
-          <Button className="transparent">Other</Button>
-        </div>
+            <div
+              className={`${styles.jobs} mt-5 d-flex justify-content-around align-items-center gap-4 flex-wrap`}
+            >
+              {jobDescriptions?.map((item) => (
+                <JobCard
+                  category={item?.category}
+                  title={item?.title}
+                  description={item?.shortDescription}
+                  jobPlace={item?.jobPlace}
+                  jobType={item?.jobType}
+                  key={item?._id}
+                  link={item?._id}
+                />
+              ))}
+              {/* <JobCard />
+              <JobCard />
+              <JobCard />
+              <JobCard />
+              <JobCard />
+              <JobCard />
+              <JobCard /> */}
+            </div>
 
-        <div
-          className={`${styles.jobs} mt-5 d-flex justify-content-around align-items-center gap-4 flex-wrap`}
-        >
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-        </div>
-
-        <div className="mt-5 d-flex align-items-center justify-content-center ">
-          <Button className="bg-blue">
-            {" "}
-            <Image height={15} className="mb-1" src={LOADERICON} alt="" /> Load
-            More
-          </Button>
-        </div>
+            <div className="mt-5 d-flex align-items-center justify-content-center ">
+              <Button className="bg-blue">
+                {" "}
+                <Image
+                  height={15}
+                  className="mb-1"
+                  src={LOADERICON}
+                  alt=""
+                />{" "}
+                Load More
+              </Button>
+            </div>
+          </>
+        ) : (
+          <h6 className="H6 text-center t-primary">
+            There are no Jobs right now
+          </h6>
+        )}
       </div>
     </div>
   );
@@ -123,18 +171,16 @@ const BenefitCard = () => {
   );
 };
 
-const JobCard = () => {
-  const description =
-    "We’re looking for a mid-level product designer to join our team.";
+const JobCard = ({ description, category, title, jobType, jobPlace, link }) => {
   return (
-    <Link to={`career-page`}>
+    <Link to={`${link}`}>
       <div className={`${styles["job-card"]}`}>
         <div className="d-flex align-items-center gap-2">
-          <h6 className="p-lg t-dark fw-bold">Product Designer</h6>
+          <h6 className="p-lg t-dark fw-bold">{title}</h6>
           <span
             className={`${styles["job-category"]} d-flex align-items-center`}
           >
-            <RxDotFilled size={18} color="000" /> Design
+            <RxDotFilled size={18} color="000" /> {category}
           </span>
         </div>
         <p className="p1 mt-3 text-grey">{description.slice(0, 63)}...</p>
@@ -143,11 +189,11 @@ const JobCard = () => {
         >
           <span className="d-flex align-items-center ">
             <GrLocation className="me-2" size={20} color="#667790" />
-            Remote
+            {jobPlace}
           </span>
           <span className="d-flex align-items-center ">
             <TbClockHour4 className="me-2" color="#667790" size={22} />
-            Full time
+            {jobType}
           </span>
         </div>
       </div>
