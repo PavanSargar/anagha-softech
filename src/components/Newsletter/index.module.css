@@ -42,6 +42,11 @@
   justify-content: center;
 }
 
+.input button:disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
 
 @media screen and (max-width: 391px) {
 

@@ -27,6 +27,7 @@ import Newsletter from "../../components/Newsletter/index";
 import styles from "./index.module.css";
 import { Col, Image, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Config from "../../../Config";
 
 const Contact = () => {
   const {
@@ -37,9 +38,9 @@ const Contact = () => {
   } = useForm();
   const [isSuccess, setSuccess] = useState(false);
   const [isError, setError] = useState(false);
-  const [serviceError, setServiceError] = useState(false);
   const [selectedService, setSelectedService] = useState("");
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleService = (service) => {
     setSelectedService(service);
@@ -49,6 +50,7 @@ const Contact = () => {
     });
   };
   const onSubmit = async (data) => {
+    setLoading(true);
     const resData = {
       ...data,
       services,
@@ -62,20 +64,16 @@ const Contact = () => {
       data: resData,
     };
 
-    if (services.length) {
-      await axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-          setSuccess(true);
-          reset();
-        })
-        .catch(function (error) {
-          console.log(error);
-          setError(true);
-        });
-    } else {
-      setServiceError(true);
-    }
+    await axios(config)
+      .then(function (response) {
+        setSuccess(true);
+        setLoading(false);
+        reset();
+      })
+      .catch(function (error) {
+        setError(true);
+        setLoading(false);
+      });
   };
   return (
     <div className={`${styles.container}`}>
@@ -186,11 +184,7 @@ const Contact = () => {
               Thanks, we'll respond to your query ASAP!
             </p>
           )}
-          {!services.length && serviceError && (
-            <p className="text-danger p3">
-              *Please select minimum one service.
-            </p>
-          )}
+
           {isError && (
             <p className="text-danger p3">
               Something went wrong, please try again!
@@ -203,7 +197,8 @@ const Contact = () => {
             className="bg-blue"
             fixed
           >
-            <Image src={SENDICON} height={18} alt="" /> Submit Now
+            <Image src={SENDICON} height={18} alt="" />{" "}
+            {loading ? "Submitting..." : "Submit Now"}
           </Button>
         </Col>
       </Row>

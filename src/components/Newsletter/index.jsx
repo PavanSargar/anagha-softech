@@ -12,10 +12,12 @@ const Newsletter = ({ animation }) => {
   const [isInvalidEmail, setInvalidEmail] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async () => {
     setIsError(false);
     setInvalidEmail(false);
+    setLoading(true);
     email.trim();
     if (email.includes("@") && email.includes(".")) {
       var config = {
@@ -30,12 +32,12 @@ const Newsletter = ({ animation }) => {
       await axios(config)
         .then(function (response) {
           setSuccess(true);
-          console.log(JSON.stringify(response.data));
           setEmail("");
+          setLoading(false);
         })
         .catch(function (error) {
-          console.log(error);
           setIsError(true);
+          setLoading(false);
         });
     } else {
       setInvalidEmail(true);
@@ -67,7 +69,7 @@ const Newsletter = ({ animation }) => {
               type="email"
             />
             <button disabled={isSuccess} onClick={onSubmit} className="bg-blue">
-              Submit
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
           {isSuccess && (

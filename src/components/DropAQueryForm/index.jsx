@@ -9,6 +9,7 @@ import Config from "../../../Config";
 const DropAQueryForm = () => {
   const [isSuccess, setSuccess] = useState(false);
   const [isError, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -18,6 +19,7 @@ const DropAQueryForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     var config = {
       method: "post",
       url: `${Config.backendUrl}/query/createOne`,
@@ -31,11 +33,14 @@ const DropAQueryForm = () => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         setSuccess(true);
+        setLoading(false);
+
         reset();
       })
       .catch(function (error) {
         console.log(error);
         setError(true);
+        setLoading(false);
       });
   };
 
@@ -90,7 +95,7 @@ const DropAQueryForm = () => {
             type="submit"
             className="bg-blue"
           >
-            Send Now
+            {loading ? "Sending..." : "Send Now"}
           </Button>
         </div>
       </form>

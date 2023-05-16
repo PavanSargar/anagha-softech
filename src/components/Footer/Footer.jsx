@@ -126,30 +126,6 @@ const Footer = () => {
               </div>
               <div className={`${styles["form-group"]}`}>
                 <label htmlFor="date">TIME SLOT</label>
-                {/* <input
-                    // placeholder="Enter your email"
-                    type="date"
-                    name="start"
-                    id="start"
-                    {...register("timeSlot1", { required: true })}
-                  />
-                  <input
-                    // placeholder="Enter your email"
-                    type="date"
-                    name="end"
-                    id="end"
-                    {...register("timeSlot2", { required: true })}
-                  /> */}
-                {/* 
-                  <DatePicker
-                    selected={date}
-                    onChange={handleDateChange}
-                    showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={15}
-                    dateFormat="MMMM d, yyyy h:mm aa"
-                    timeCaption="Time"
-                  /> */}
 
                 <input
                   placeholder="Select your time slot"
