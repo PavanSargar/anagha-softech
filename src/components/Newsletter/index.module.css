@@ -36,12 +36,15 @@
   padding: 0 1rem;
 }
 
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 @media screen and (max-width: 391px) {
-  .input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
 
   .input input {
     resize: both;
