@@ -18,7 +18,7 @@ const ServiceArea = ({ animation }) => {
       <div
         className={`${styles.heading} d-flex flex-column align-items-center justify-content-center`}
       >
-        <p className="p3 fw-bold text-pink text-center">SERVICE AREA</p>
+        <p className="p1 fw-bold text-pink text-center">SERVICE AREA</p>
         <h3 className="H3 section-heading t-primary w-75 text-center">
           Industries we serve
         </h3>

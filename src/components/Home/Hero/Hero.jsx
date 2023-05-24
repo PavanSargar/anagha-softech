@@ -34,9 +34,9 @@ const Hero = ({ animation }) => {
             <Link to="/our-services">
               <Button className="bg-blue">Know more</Button>
             </Link>
-            <Link to="/portfolio">
+            {/* <Link to="/portfolio">
               <Button className="border">Portfolio</Button>
-            </Link>
+            </Link> */}
           </div>
         </Col>
         <Col md={6} sm={12} className={`${styles.right}`}>

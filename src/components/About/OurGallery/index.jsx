@@ -5,7 +5,6 @@ import styles from "./index.module.css";
 import Wrapper from "../../../libs/Wrapper";
 import Button from "../../../libs/Button/Button";
 
-import IMAGEFRAME from "../../../assets/images/image-frame.png";
 import { Carousel, Image } from "react-bootstrap";
 
 const OurGallery = ({ animation }) => {
@@ -15,7 +14,7 @@ const OurGallery = ({ animation }) => {
         <div
           className={`${styles.heading} d-flex align-items-center flex-column`}
         >
-          <p className="p3 fw-bold tex-center text-pink">OUR GALLERY</p>
+          <p className="p1 fw-bold tex-center text-pink">OUR GALLERY</p>
 
           <h3 className="H3 text-center t-primary mb-2">
             Have a look at our work

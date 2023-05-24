@@ -3,6 +3,18 @@
   height: 70vh;
 }
 
+.container button {
+  background-color: #efefef;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+
+  border: none;
+  outline: none;
+}
+
+
 .banner img {
   position: relative;
   top: 5ex;

@@ -70,17 +70,16 @@ const Testimonials = ({ animation }) => {
       <div
         className={`${styles.heading} d-flex flex-column align-items-center justify-content-center`}
       >
-        <p className="p3 fw-bold text-pink text-center">Testimonial</p>
+        <p className="p1 fw-bold text-pink text-center">Testimonial</p>
         <h3 className="H3 section-heading t-primary w-75 text-center">
           Don’t Just Trust Our Word. Look What Our Customers Say About Our
           Solutions
         </h3>
         <p
-          className={`${styles.description} w-75 text-center p-xl text-grey mt-4`}
+          className={`${styles.description} text-center p-xl text-grey mt-4`}
         >
           Our clients are at the heart of everything we do, and their
-          satisfaction is our top priority. See what they have to say about our
-          services and how we have helped their businesses grow and succeed.
+          satisfaction is our top priority. 
         </p>
         <div className="mt-4 d-flex align-items-center justify-content-center">
           <Image src={selectedReview[0].image} alt="" />

@@ -13,7 +13,7 @@ const Query = ({animation}) => {
       <Wrapper>
         <Row className="py-5 align-items-center">
           <Col sm={12} md={6}>
-            <p className="p3 fw-bold text-pink">WE ARE HERE TO SUPPORT YOU</p>
+            <p className="p1 fw-bold text-pink">WE ARE HERE TO SUPPORT YOU</p>
             <h3 className="H3 section-heading mb-4 t-primary w-100">
               Having a Query?
             </h3>

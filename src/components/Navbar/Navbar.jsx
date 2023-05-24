@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import Button from "../../libs/Button/Button";
@@ -9,15 +9,20 @@ import styles from "./Navbar.module.css";
 import { Image } from "react-bootstrap";
 import SubMenu from "../SubMenu";
 import { FiChevronDown } from "react-icons/fi";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 const Menu = ({ mobile, setToggleMenu }) => {
   const [isSubMenu, setSubMenu] = useState(false);
   const [isActive, setIsActive] = useState("");
   const currentUrl = window.location.pathname;
 
+  const ref = useRef(null);
+
   const handleCloseSubMenu = () => {
     setSubMenu(false);
   };
+
+  useOnClickOutside(ref, () => handleCloseSubMenu);
 
   useEffect(() => {
     setIsActive(currentUrl.slice(1));
@@ -40,10 +45,11 @@ const Menu = ({ mobile, setToggleMenu }) => {
         {!mobile ? (
           <Link
             // onMouseOut={() => setSubMenu(false)}
-            onClick={() => {
-              setIsActive("our-services");
+            onMouseEnter={() => {
+              // setIsActive("our-services");
               setSubMenu(!isSubMenu);
             }}
+            onClick={() => setIsActive("our-services")}
             className={`${isActive === "our-services" && styles.active} ${
               styles.services
             } fw-bold d-flex align-items-center gap-1`}
@@ -68,7 +74,12 @@ const Menu = ({ mobile, setToggleMenu }) => {
             {!mobile && <FiChevronDown fontWeight={700} color="#c701ff" />}
           </Link>
         )}
-        <SubMenu closeSubMenu={handleCloseSubMenu} active={isSubMenu} />{" "}
+        <SubMenu
+          ref={ref}
+          closeSubMenu={handleCloseSubMenu}
+          active={isSubMenu}
+          setIsActive={setSubMenu}
+        />{" "}
       </p>
       <p>
         <Link
@@ -82,7 +93,7 @@ const Menu = ({ mobile, setToggleMenu }) => {
           About Us
         </Link>
       </p>
-      <p>
+      {/* <p>
         <Link
           onClick={() => {
             setIsActive("portfolio");
@@ -93,7 +104,7 @@ const Menu = ({ mobile, setToggleMenu }) => {
         >
           Portfolio
         </Link>
-      </p>
+      </p> */}
       <p>
         <Link
           onClick={() => {

@@ -17,7 +17,7 @@ const OurTeam = ({ animation }) => {
   return (
     <Wrapper animation={animation}>
       <div className={`${styles.heading} mb-4 `}>
-        <p className="p3 fw-bold text-center text-pink">OUR TEAM</p>
+        <p className="p1 fw-bold text-center text-pink">OUR TEAM</p>
         <h3 className="H3 text-center t-primary ">Anagha Softech Team</h3>
         <p className="p-xl text-grey text-center">
           Expert professionals, passionate about shaping the future of

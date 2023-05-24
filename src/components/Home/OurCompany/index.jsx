@@ -14,7 +14,7 @@ const OurCompany = ({ animation }) => {
           <Image className="fluid" src={IMAGE} alt="" />
         </Col>
         <Col>
-          <p className="p3 fw-bold text-pink">OUR COMPANY</p>
+          <p className="p1 fw-bold text-pink">OUR COMPANY</p>
           <h3 className="H3 section-heading mb-4 t-primary w-100">
             Connecting Businesses with Modern Tech
           </h3>

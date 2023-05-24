@@ -8,9 +8,14 @@ import { Col, Row } from "react-bootstrap";
 import Button from "../../libs/Button/Button";
 import { Link } from "react-router-dom";
 
-const SubMenu = ({ active, closeSubMenu }) => {
+const SubMenu = ({ active, closeSubMenu, setIsActive, ref }) => {
   return (
-    <div className={`${styles.container} ${active && styles.active}`}>
+    <div
+      onMouseOut={() => setIsActive(false)}
+      onMouseOver={() => setIsActive(true)}
+      ref={ref}
+      className={`${styles.container} ${active && styles.active}`}
+    >
       <Row className="align-items-center justify-content-between">
         <Col className="" md={7}>
           <div className="d-flex align-items-center gap-4 mb-3">

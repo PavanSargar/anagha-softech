@@ -10,7 +10,9 @@ import ITGUYIMG from "../../assets/images/itguy.svg";
 import IMGICON from "../../assets/icons/img-icon.svg";
 import styles from "./index.module.css";
 import ContactBanner from "../../components/ContactBanner";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
+import { FiArrowLeft } from "react-icons/fi";
 
 const mobileAppDevelopment = {
   title: "Mobile App Development",
@@ -193,11 +195,10 @@ const ServiceDetail = () => {
   const cyberSecurity = id.split("-").join("") === "cybersecurity";
   const staffingSolutions = id.split("-").join("") === "staffingsolutions";
 
-  console.log(id.split("-").join(""));
+  const navigate = useNavigate();
 
   useEffect(() => {
-
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
 
     if (mobileDevelopment) setServiceData(mobileAppDevelopment);
     if (webDevelopment) setServiceData(webDevelopmentData);
@@ -205,16 +206,21 @@ const ServiceDetail = () => {
     if (staffingSolutions) setServiceData(staffingSolutionsData);
   }, [id]);
 
-
   return (
     <>
       <div className={`${styles.container} pt-5`}>
         <Wrapper>
+          <button
+            onClick={() => navigate(-1)}
+            className="d-flex align-items-center gap-2 mb-4 "
+          >
+            <FiArrowLeft color="#000" size={16} /> Back
+          </button>
           <div
             className={`${styles.heading} d-flex align-items-center gap-5 justify-content-between`}
           >
             <div>
-              <p className="p3 fw-bold text-pink">OVERVIEW</p>
+              <p className="p1 fw-bold text-pink">OVERVIEW</p>
               <h3 className="H2 t-dark ">{serviceData?.title}</h3>
             </div>
 

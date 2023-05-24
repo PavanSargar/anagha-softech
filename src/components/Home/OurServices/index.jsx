@@ -18,7 +18,7 @@ const OurServices = ({ animation }) => {
       <div
         className={`${styles.heading} d-flex align-items-center flex-column`}
       >
-        <p className="p3 fw-bold text-pink">OUR SERVICES</p>
+        <p className="p1 fw-bold text-pink">OUR SERVICES</p>
         <h3 className="H3 text-center t-primary ">
           Professional IT solutions that cater to every aspect of your business
           needs.

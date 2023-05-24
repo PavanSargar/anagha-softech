@@ -15,7 +15,7 @@ const OurMission = () => {
       <div
         className={`${styles.head} flex-column d-flex align-items-center justify-content-center`}
       >
-        <p className="p3 fw-bold text-pink text-center">OUR</p>
+        <p className="p1 fw-bold text-pink text-center">OUR</p>
         <h3 className="H3 text-center section-heading mb-4 t-primary w-100">
           Mission, Vision & Approach
         </h3>

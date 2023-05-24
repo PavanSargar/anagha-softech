@@ -41,11 +41,11 @@ function App() {
           element={<Services animation="fade-down" />}
         />
         <Route path="/service/:id" element={<ServiceDetail />} />
-        <Route
+        {/* <Route
           path="/portfolio"
           element={<Portfolio animation="fade-down" />}
         />
-        <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+        <Route path="/portfolio/:id" element={<PortfolioDetail />} /> */}
         <Route path="/career/:id" element={<CareerDetail />} />
 
         <Route path="/contact" element={<Contact />} />
