@@ -1,6 +1,10 @@
+.container {
+  overflow-x: hidden;
+}
 .details p {
   padding: 0 !important;
   margin-bottom: 0rem;
+
 }
 .card {
   cursor: pointer;
@@ -13,11 +17,11 @@
   border-bottom-color: #18a8ff;
 }
 
-.review-cards {
+/* .review-cards {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 .slider {
   display: none;
 }

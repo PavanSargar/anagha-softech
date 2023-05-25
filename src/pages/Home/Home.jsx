@@ -12,6 +12,9 @@ import OurMission from "../../components/Home/OurMission";
 import Query from "../../components/Home/Query";
 import Newsletter from "../../components/Newsletter";
 
+import "react-multi-carousel/lib/styles.css";
+
+
 const Home = ({ animation }) => {
   return (
     <div style={{ marginTop: "56px" }}>

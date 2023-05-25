@@ -53,6 +53,30 @@ const data = [
     isActive: false,
     image: YVREDDY,
   },
+  {
+    review: `Anagha Softech has selected best solution for our new project Ace Auto Products, and built our application from concept to live. Whole team was very helpful and supportive throughout our dealing with them and still helping us with our various needs.`,
+    name: "Ace Auto Products Ltd",
+    company: "Ace Auto Products Ltd.",
+    role: "Director",
+    isActive: false,
+    image: ACE,
+  },
+  {
+    review: `It was a pleasure working with Anagha Softech worked closely with us every step of the way, and we valued creative input that exceeded our expectations.Company is monitoring online services since 5 years first of congratulations to Anagha Softech for great job and really fantastic all the time.!`,
+    name: "Mulugu Ramalingeswara Vara Prasad",
+    company: "Mulugu.com",
+    role: "Astrologer",
+    isActive: false,
+    image: MULUGU,
+  },
+  {
+    review: `Anagha Softech is a very professional IT organisation with creative minds in Web Design, Development and SEO support. The team at Anagha Softech responds quickly and promptly to client requirements. I wish good luck to the organisation.`,
+    name: "Dhananjaya Gorji",
+    company: "MG Cancer Hospital",
+    role: "",
+    isActive: false,
+    image: MG,
+  },
 ];
 
 const Testimonials = ({ animation }) => {
@@ -75,11 +99,9 @@ const Testimonials = ({ animation }) => {
           Don’t Just Trust Our Word. Look What Our Customers Say About Our
           Solutions
         </h3>
-        <p
-          className={`${styles.description} text-center p-xl text-grey mt-4`}
-        >
+        <p className={`${styles.description} text-center p-xl text-grey mt-4`}>
           Our clients are at the heart of everything we do, and their
-          satisfaction is our top priority. 
+          satisfaction is our top priority.
         </p>
         <div className="mt-4 d-flex align-items-center justify-content-center">
           <Image src={selectedReview[0].image} alt="" />
@@ -97,21 +119,23 @@ const Testimonials = ({ animation }) => {
           <p className="p-2 text-grey">{selectedReview[0]?.company}</p>
         </span>
 
-        <div className={`${styles["review-cards"]} mt-4  gap-5`}>
-          {data.map((item, i) => (
-            <ReviewCard
-              onClick={() => setCurrentActive(item.name)}
-              name={item.name}
-              company={item.role}
-              key={i}
-              isActive={currentActive === item.name}
-            />
-          ))}
+        <div className={styles["review-cards"]}>
+          <Carousel items={4} indicator={false} scroll={1}>
+            {data.map((item, i) => (
+              <ReviewCard
+                onClick={() => setCurrentActive(item.name)}
+                name={item.name}
+                company={item.role}
+                key={i}
+                isActive={currentActive === item.name}
+              />
+            ))}
+          </Carousel>
         </div>
       </div>
 
       <div className={`${styles.slider}`}>
-        <Carousel indicator items={4} scroll={1}>
+        <Carousel indicator items={1} scroll={1}>
           {data.map((item, i) => (
             <div className="mt-5 h-50" key={i}>
               <div className="d-flex align-items-center justify-content-center">
