@@ -78,4 +78,15 @@
     border-radius: 48px;
     padding: 2rem 1rem;
   }
+
+  .input input,
+  .input textarea {
+    font-size: 14px !important;
+  }
+
+  .card {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+  }
 }

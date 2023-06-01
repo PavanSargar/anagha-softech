@@ -20,7 +20,6 @@ const FileUpload = ({ pdfFile, setPdfFile }) => {
       return;
     }
 
-    console.log(acceptedFiles[0]);
     // Set the PDF file
     setPdfFile(acceptedFiles[0]);
   }, []);

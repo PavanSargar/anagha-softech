@@ -32,7 +32,6 @@ const Career = ({ animation }) => {
     await axios(config)
       .then(function (response) {
         setJobDescriptions(response.data?.body);
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);

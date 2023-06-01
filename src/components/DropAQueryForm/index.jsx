@@ -31,14 +31,12 @@ const DropAQueryForm = () => {
 
     await axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         setSuccess(true);
         setLoading(false);
 
         reset();
       })
       .catch(function (error) {
-        console.log(error);
         setError(true);
         setLoading(false);
       });

@@ -205,7 +205,7 @@ const Contact = () => {
 
       <Wrapper>
         <Row>
-          <Col>
+          <Col sm={12}>
             <div className="d-flex align-items-start">
               <div>
                 <div className={`${styles["address-card"]}`}>

@@ -173,17 +173,18 @@ const Navbar = () => {
             <div className={styles["__navbar-menu_container-links"]}>
               <Menu setToggleMenu={setToggleMenu} mobile />
               <div className={styles["__navbar-menu_container-links-sign"]}>
-                <Button className="border">
+                <Button onClick={() => setToggleMenu(false)} className="border">
                   <Link to="/contact">Contact Us</Link>
                 </Button>
 
                 <Button
-                  onClick={() =>
+                  onClick={() => {
                     window.scrollTo({
                       top: document.documentElement.scrollHeight,
                       behavior: "smooth",
-                    })
-                  }
+                    });
+                    setToggleMenu(false);
+                  }}
                 >
                   Get a call
                 </Button>

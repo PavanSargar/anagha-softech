@@ -73,7 +73,6 @@ const CareerDetail = () => {
     await axios(config)
       .then(function (response) {
         setJdData(response.data?.body);
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);

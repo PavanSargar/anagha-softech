@@ -13,6 +13,7 @@ const Carousel = ({
   scroll = 1,
   indicator = false,
   autoScroll = false,
+  autoplaySpeed=2000
 }) => {
   const settings = {
     // dots: true,
@@ -24,7 +25,7 @@ const Carousel = ({
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     autoplay: autoScroll,
-    autoplaySpeed: 2000,
+    autoplaySpeed,
     responsive: [
       {
         breakpoint: 1268,
