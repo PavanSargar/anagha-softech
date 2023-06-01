@@ -51,6 +51,10 @@
   line-height: 24px;
 }
 
+.right img {
+  width: 85%;
+}
+
 @media screen and (max-width: 992px) {
   .overview-components {
     flex-direction: column;
@@ -63,6 +67,11 @@
 @media screen and (max-width: 768px) {
   .left h2 {
     line-height: 40px;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

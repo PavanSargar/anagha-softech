@@ -57,7 +57,12 @@ const Footer = () => {
   };
 
   return (
-    <div className={`${styles.container} py-2`}>
+    <div
+      onClick={(e) => {
+        setDatePicker(false);
+      }}
+      className={`${styles.container} py-2`}
+    >
       <Wrapper>
         <Row className="flex-wrap">
           <Col md={3} sm={6} xs={12}>
@@ -132,7 +137,10 @@ const Footer = () => {
                   name="timeSlot"
                   id="timeSlot"
                   value={date}
-                  onClick={() => setDatePicker(!isDatePicker)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setDatePicker(!isDatePicker);
+                  }}
                 />
 
                 {isDatePicker && (

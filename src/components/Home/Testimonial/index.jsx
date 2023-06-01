@@ -16,6 +16,10 @@ import ACE from "../../../assets/dummyLogos/ace-auto-products-logo.png";
 import MULUGU from "../../../assets/dummyLogos/mulugulogo.jpg";
 import MG from "../../../assets/dummyLogos/mgcancerhospital-logo.png";
 
+import USER2 from "../../../assets/avatars/user1.png";
+import USER3 from "../../../assets/avatars/user2.svg";
+import USER4 from "../../../assets/avatars/user3.svg";
+
 import Carousel from "../../../components/Slider/index";
 
 import { Image } from "react-bootstrap";
@@ -28,6 +32,7 @@ const data = [
     role: "Director",
     isActive: true,
     image: BIRED,
+    userImage: USER,
   },
   {
     review: `Anagha Softech professional and supportive throughout our dealing with them. They developed us a project in very quick time and gave us many good ideas during this project. We would have absolutely no hesitation in using their services again and recommending them to our other business associates.`,
@@ -36,6 +41,7 @@ const data = [
     role: "Director",
     isActive: false,
     image: CRESTOIL,
+    userImage: USER2,
   },
   {
     review: `Anagha Softech has shown great commitment and truly appreciate their dedicated work as a team and delivered excellent piece of work. I am very happy with the product and its ease of use. I highly recommend them and would be happy to work with them in our future projects…`,
@@ -44,6 +50,7 @@ const data = [
     role: "Director of Operations",
     isActive: false,
     image: RUPTECHCORP,
+    userImage: USER3,
   },
   {
     review: `Anagha Softech has shown great commitment and truly appreciate their dedicated work as a team and delivered excellent piece of work. I am very happy with the product and its ease of use. I highly recommend them and would be happy to work with them in our future projects…`,
@@ -52,6 +59,7 @@ const data = [
     role: "Former Governor",
     isActive: false,
     image: YVREDDY,
+    userImage: USER4,
   },
   {
     review: `Anagha Softech has selected best solution for our new project Ace Auto Products, and built our application from concept to live. Whole team was very helpful and supportive throughout our dealing with them and still helping us with our various needs.`,
@@ -60,6 +68,7 @@ const data = [
     role: "Director",
     isActive: false,
     image: ACE,
+    userImage: USER,
   },
   {
     review: `It was a pleasure working with Anagha Softech worked closely with us every step of the way, and we valued creative input that exceeded our expectations.Company is monitoring online services since 5 years first of congratulations to Anagha Softech for great job and really fantastic all the time.!`,
@@ -68,6 +77,7 @@ const data = [
     role: "Astrologer",
     isActive: false,
     image: MULUGU,
+    userImage: USER2,
   },
   {
     review: `Anagha Softech is a very professional IT organisation with creative minds in Web Design, Development and SEO support. The team at Anagha Softech responds quickly and promptly to client requirements. I wish good luck to the organisation.`,
@@ -76,6 +86,7 @@ const data = [
     role: "",
     isActive: false,
     image: MG,
+    userImage: USER3,
   },
 ];
 
@@ -127,6 +138,7 @@ const Testimonials = ({ animation }) => {
                 name={item.name}
                 company={item.role}
                 key={i}
+                USERIMG={item.userImage}
                 isActive={currentActive === item.name}
               />
             ))}
@@ -154,6 +166,7 @@ const Testimonials = ({ animation }) => {
                 name={item.name}
                 company={item.role}
                 isActive={currentActive === item.name}
+                USERIMG={item.userImage}
               />
             </div>
           ))}
@@ -165,7 +178,7 @@ const Testimonials = ({ animation }) => {
 
 export default Testimonials;
 
-const ReviewCard = ({ isActive, company, name, onClick }) => {
+const ReviewCard = ({ isActive, company, name, onClick, USERIMG }) => {
   return (
     <div
       onClick={onClick}
@@ -173,7 +186,12 @@ const ReviewCard = ({ isActive, company, name, onClick }) => {
         isActive && styles.active
       } d-flex align-items-center gap-2`}
     >
-      <Image src={USER} alt="" />
+      <Image
+        style={{ width: "50px", height: "50px" }}
+        // className="border"
+        src={USERIMG}
+        alt=""
+      />
       <div
         className={`${styles["details"]} d-flex align-items-start flex-column`}
       >

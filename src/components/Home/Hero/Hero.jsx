@@ -8,7 +8,7 @@ import USERICON from "../../../assets/icons/user.svg";
 import AVATARICON from "../../../assets/icons/small-avatar.svg";
 import CODEICON from "../../../assets/icons/code.svg";
 import CASTICON from "../../../assets/icons/cast.svg";
-import HEROIMG from "../../../assets/images/hero-image.svg";
+import HEROIMG from "../../../assets/images/hero-img.svg";
 
 import styles from "./Hero.module.css";
 import { Link } from "react-router-dom";
@@ -40,7 +40,7 @@ const Hero = ({ animation }) => {
           </div>
         </Col>
         <Col md={6} sm={12} className={`${styles.right}`}>
-        <Image src={HEROIMG} alt="" fluid />
+          <Image src={HEROIMG} alt="" fluid />
         </Col>
       </Row>
       <Row className="section-padding ">
